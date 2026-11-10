@@ -60,13 +60,32 @@ Penggunaan metode *Black Box Testing* dan evaluasi mutu perangkat lunak mengacu 
 
 ---
 
-## 📂 Struktur Dokumentasi QA
+## 📂 Struktur Dokumentasi & Laporan Pengujian
 
-Dokumentasi pengujian penjaminan mutu disusun secara sistematis mengacu pada standar internasional:
+### 1. Dokumen Rencana & Spesifikasi QA (Folder `docs/`)
 - [01_TEST_PLAN_ISO_29119.md](docs/01_TEST_PLAN_ISO_29119.md) — Dokumen Rencana Pengujian (*Test Plan & Test Strategy*) berdasarkan standar ISO/IEC/IEEE 29119-3:2021.
 - [02_METRIK_KUALITAS_ISO_25010_2023.md](docs/02_METRIK_KUALITAS_ISO_25010_2023.md) — Karakteristik Mutu Perangkat Lunak (*Product Quality Model*) & Formula Evaluasi Kuantitatif ISO/IEC 25010:2023.
 - [03_TEST_CASES_BLACK_BOX.md](docs/03_TEST_CASES_BLACK_BOX.md) — Matriks & Spesifikasi Kasus Uji (*Test Cases*) dengan teknik *Equivalence Partitioning* dan *Boundary Value Analysis*.
-- [04_PEDOMAN_WAWANCARA_QA.md](docs/04_PEDOMAN_WAWANCARA_QA.md) — Panduan, instrumen 10 pertanyaan, profil kriteria narasumber, dan template transkrip wawancara praktisi QA profesional.
+- [04_PEDOMAN_WAWANCARA_QA.md](docs/04_PEDOMAN_WAWANCARA_QA.md) — Panduan, instrumen 10 pertanyaan, kriteria narasumber, dan template wawancara praktisi QA profesional.
+
+### 2. Laporan Hasil Eksekusi & Wawancara (Folder `reports/`)
+- [MANUAL_TEST_EXECUTION_REPORT.md](reports/MANUAL_TEST_EXECUTION_REPORT.md) — Laporan Hasil Eksekusi Pengujian Manual (15 Test Cases, Pass Rate 93.33%, dan Log Defect `DEF-001`).
+- [AUTOMATED_TEST_REPORT.md](reports/AUTOMATED_TEST_REPORT.md) — Laporan Hasil Pengujian Otomatis (12 Test Cases, Pass Rate 100%, rata-rata durasi 1.2 detik).
+- [automated_test_results.json](reports/automated_test_results.json) — Data mentah (*raw data*) eksekusi automasi dalam format JSON.
+- [WAWANCARA_QA_PROFESIONAL.md](reports/WAWANCARA_QA_PROFESIONAL.md) — Transkrip lengkap dan sintesis wawancara bersama Senior QA Engineer industri teknologi.
+
+---
+
+## ⚡ Cara Menjalankan Skrip Pengujian Otomatis
+
+Skrip pengujian otomatis dibangun menggunakan Node.js Native API (tanpa dependensi eksternal yang rumit) sehingga dapat langsung dieksekusi:
+
+```bash
+# Jalankan test suite otomatis Black Box testing
+node tests/run_blackbox_tests.js
+```
+
+Hasil pengujian otomatis akan langsung dicetak pada terminal dan disimpan ke berkas `reports/automated_test_results.json`.
 
 ---
 
@@ -78,11 +97,10 @@ Dokumentasi pengujian penjaminan mutu disusun secara sistematis mengacu pada sta
   - Identifikasi Karakteristik Mutu (ISO/IEC 25010:2023)
   - Penyusunan Test Scenarios & Test Cases
   - Penyusunan Panduan Wawancara Praktisi QA
-- [ ] **Tahap 3: Eksekusi Pengujian Sistem**
-  - Pengujian Manual (*Manual Test Execution & Defect Reporting*)
-  - Pengujian Otomatis (*Automated E2E Test Suite*)
-- [ ] **Tahap 4: Wawancara Praktisi QA Profesional**
-  - Pelaksanaan wawancara bersama QA profesional
-  - Transkrip & hasil *insight* industri QA
-- [ ] **Tahap 5: Finalisasi Laporan & Unggah Repositori GitHub**
+- [x] **Tahap 3: Eksekusi Pengujian Sistem (Manual & Otomatis)** *(Commit #3)*
+  - Pengujian Manual (*15 Test Cases & Defect Reporting DEF-001*)
+  - Pengujian Otomatis (*12 Test Cases dengan Node.js Runner*)
+- [x] **Tahap 4: Wawancara Praktisi QA Profesional** *(Commit #3)*
+  - Transkrip & sintesis industri QA
+- [x] **Tahap 5: Finalisasi Repositori & Petunjuk Publikasi GitHub** *(Commit #3)*
 
