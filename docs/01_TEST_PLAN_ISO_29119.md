@@ -9,8 +9,9 @@
 | **Judul Proyek** | Analisis Pengujian Kualitas dan Fungsionalitas Website Keke Craft Menggunakan Metode Black Box Testing Berdasarkan Standar ISO/IEC 25010:2023 |
 | **Nama Aplikasi / Target** | Website Resmi Keke Craft Tangerang |
 | **URL Target** | [https://www.galerikeke.com/](https://www.galerikeke.com/) |
-| **Penyusun** | Tim Penguji QA / Mahasiswa Teknik Informatika (Semester 7) |
-| **Mata Kuliah** | Testing & Quality Assurance (QA) |
+| **Tim Penyusun (Kelompok)** | 1. **Bagas Afrizal** (NIM: 231011400204)<br>2. **Abdul Hafizh Ar Rasyid** (NIM: 231011403352)<br>3. **Aditya Eka Purnama** (NIM: 231011400988)<br>4. **Syaifa Maulana** (NIM: 231011401802) |
+| **Mata Kuliah** | Testing & Quality Assurance (QA) - Semester 7 |
+| **Program Studi / Kampus** | Teknik Informatika / Universitas Pamulang |
 | **Versi Dokumen** | 1.0.0 |
 | **Tanggal Terbit** | November 2026 |
 | **Standar Acuan** | ISO/IEC/IEEE 29119-3:2021 *(Test Documentation)* & ISO/IEC 25010:2023 *(Product Quality Model)* |

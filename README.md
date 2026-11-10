@@ -1,5 +1,11 @@
 # Analisis Pengujian Kualitas dan Fungsionalitas Website Keke Craft Menggunakan Metode Black Box Testing Berdasarkan Standar ISO/IEC 25010:2023
 
+[![QA Black Box Tests](https://github.com/bagasafrz7/analisis-pengujian-sistem/actions/workflows/qa-tests.yml/badge.svg)](https://github.com/bagasafrz7/analisis-pengujian-sistem/actions)
+![Standard ISO 25010:2023](https://img.shields.io/badge/Standard-ISO%2FIEC%2025010%3A2023-blue)
+![Testing Black Box](https://img.shields.io/badge/Method-Black%20Box%20Testing-green)
+![SINTA Accredited](https://img.shields.io/badge/Reference-SINTA%202%20%26%203-purple)
+![License MIT](https://img.shields.io/badge/License-MIT-orange)
+
 Proyek tugas mata kuliah **Testing & Quality Assurance (QA)** — Semester 7, Program Studi Teknik Informatika, Universitas Pamulang.
 
 ---
@@ -16,6 +22,17 @@ Proyek tugas mata kuliah **Testing & Quality Assurance (QA)** — Semester 7, Pr
 | **Metode Pengujian** | **Black Box Testing** (Manual & Automated Testing) |
 | **Teknik Pengujian** | *Equivalence Partitioning*, *Boundary Value Analysis*, dan *End-to-End Scenario Testing* |
 | **Standar Acuan QA** | **ISO/IEC 25010:2023** (*Product Quality Model*) & **ISO/IEC/IEEE 29119** (*Software Testing*) |
+
+---
+
+## 👥 Anggota Kelompok Penguji
+
+| No | Nama Lengkap | NIM | Peran Utama dalam Pengujian |
+| :-: | :--- | :---: | :--- |
+| 1 | **BAGAS AFRIZAL** | `231011400204` | Project Lead, Git Repository Manager & Automated Test Developer |
+| 2 | **ABDUL HAFIZH AR RASYID** | `231011403352` | QA Analyst & Manual Functional Test Execution |
+| 3 | **ADITYA EKA PURNAMA** | `231011400988` | Test Scenario & Test Case Designer (EP & BVA) |
+| 4 | **SYAIFA MAULANA** | `231011401802` | ISO 25010 Quality Metrics Auditor & Defect Documentation |
 
 ---
 
@@ -73,6 +90,11 @@ Penggunaan metode *Black Box Testing* dan evaluasi mutu perangkat lunak mengacu 
 - [AUTOMATED_TEST_REPORT.md](reports/AUTOMATED_TEST_REPORT.md) — Laporan Hasil Pengujian Otomatis (12 Test Cases, Pass Rate 100%, rata-rata durasi 1.2 detik).
 - [automated_test_results.json](reports/automated_test_results.json) — Data mentah (*raw data*) eksekusi automasi dalam format JSON.
 - [WAWANCARA_QA_PROFESIONAL.md](reports/WAWANCARA_QA_PROFESIONAL.md) — Transkrip lengkap dan sintesis wawancara bersama Senior QA Engineer industri teknologi.
+
+### 3. Laporan Akademik Lengkap & Bahan Presentasi
+- [LAPORAN_LENGKAP_PENGUJIAN_SISTEM.md](LAPORAN_LENGKAP_PENGUJIAN_SISTEM.md) — Naskah Laporan Akademik Lengkap Tugas Akhir (BAB I s.d. BAB V beserta Daftar Pustaka format APA/IEEE).
+- [PRESENTASI_PENGUJIAN_SISTEM.md](PRESENTASI_PENGUJIAN_SISTEM.md) — Panduan Slide Presentasi dan *Speaking Notes* untuk sidang/evaluasi di kelas.
+- [reports/dashboard.html](reports/dashboard.html) — Dashboard visual interaktif hasil pengujian kualitas ISO/IEC 25010:2023.
 
 ---
 

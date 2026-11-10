@@ -3,11 +3,19 @@
 
 ---
 
-**Mata Kuliah:** Testing & Quality Assurance (QA)  
-**Program Studi:** Teknik Informatika (Semester 7)  
-**Institusi:** Universitas Pamulang  
-**Tahun Akademik:** 2026/2027  
-**Penyusun:** Tim Mahasiswa Penguji QA  
+### Identitas Laporan Tugas Besar
+* **Mata Kuliah:** Testing & Quality Assurance (QA)
+* **Program Studi:** Teknik Informatika (Semester 7)
+* **Institusi:** Universitas Pamulang
+* **Tahun Akademik:** 2026/2027
+
+### Disusun Oleh (Kelompok Penguji):
+| No | Nama Lengkap | NIM | Peran / Tanggung Jawab Pengujian |
+| :-: | :--- | :---: | :--- |
+| 1 | **BAGAS AFRIZAL** | **231011400204** | Project Lead & Automated Test Developer |
+| 2 | **ABDUL HAFIZH AR RASYID** | **231011403352** | QA Analyst & Manual Test Execution |
+| 3 | **ADITYA EKA PURNAMA** | **231011400988** | Test Scenario Designer (EP & BVA) |
+| 4 | **SYAIFA MAULANA** | **231011401802** | ISO 25010 Quality Metrics & Defect Auditor |
 
 ---
 
@@ -199,3 +207,4 @@ Wawancara dengan narasumber Senior QA Engineer (Raditya Pratama, S.Kom.) mengonf
 5. DECODE. (2023). *Penerapan Black-Box Testing Menggunakan Teknik Equivalence Partitioning pada Pengujian Fungsionalitas Sistem Informasi*. DECODE: Jurnal Pendidikan Teknologi Informasi - SINTA 2, Universitas Muhammadiyah Kendari.
 6. JURIKOM. (2023). *Pengujian Fungsionalitas Website UMKM Menggunakan Boundary Value Analysis*. Jurnal Riset Komputer (JURIKOM) - SINTA 3, STMIK Budi Darma.
 7. Pressman, R. S., & Maxim, B. R. (2020). *Software Engineering: A Practitioner's Approach* (9th ed.). New York: McGraw-Hill Education.
+

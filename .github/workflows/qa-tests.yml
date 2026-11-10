@@ -1,0 +1,36 @@
+name: Automated QA Black Box Testing
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run periodically every Monday at 02:00 UTC to monitor website health
+    - cron: '0 2 * * 1'
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Black Box Tests (ISO/IEC 25010:2023)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js Runtime
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Execute Automated Black Box Test Suite
+        run: |
+          node tests/run_blackbox_tests.js
+
+      - name: Archive Test Results Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: automated-qa-results
+          path: reports/automated_test_results.json
