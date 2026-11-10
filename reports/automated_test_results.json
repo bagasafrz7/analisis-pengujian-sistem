@@ -1,0 +1,130 @@
+{
+  "executedAt": "2026-11-10T10:30:21.901Z",
+  "targetUrl": "https://www.galerikeke.com",
+  "totalTests": 12,
+  "passed": 12,
+  "failed": 0,
+  "passRate": "100.00%",
+  "results": [
+    {
+      "testId": "TC-NAV-01",
+      "name": "Homepage Availability & Navigation Links",
+      "category": "Functional Suitability",
+      "status": "PASS",
+      "durationMs": 2481,
+      "details": "Homepage merespons status 200, memuat judul KEKE CRAFT dan tautan navigasi utama.",
+      "expected": "Status 200 & Navigation elements exist",
+      "actual": "Status 200"
+    },
+    {
+      "testId": "TC-NAV-02",
+      "name": "Product Catalog Page Verification",
+      "category": "Functional Suitability",
+      "status": "PASS",
+      "durationMs": 1160,
+      "details": "Halaman katalog produk aktif, memuat judul \"PRODUK KEKE CRAFT\" dan daftar item kerajinan.",
+      "expected": "Status 200 & Heading \"PRODUK KEKE CRAFT\"",
+      "actual": "Status 200"
+    },
+    {
+      "testId": "TC-NAV-03",
+      "name": "About Us Page Verification",
+      "category": "Functional Suitability",
+      "status": "PASS",
+      "durationMs": 1150,
+      "details": "Halaman About Us memuat profil UMKM Keke Craft sejak 2021.",
+      "expected": "Status 200 & Profil Keke Craft",
+      "actual": "Status 200"
+    },
+    {
+      "testId": "TC-CTA-01",
+      "name": "WhatsApp Direct Order CTA",
+      "category": "Compatibility / Interoperability",
+      "status": "PASS",
+      "durationMs": 1288,
+      "details": "Tautan WhatsApp resmi (wa.me/6281386058147) ditemukan pada halaman.",
+      "expected": "Tautan WhatsApp wa.me/6281386058147 ditemukan",
+      "actual": "Tautan ditemukan"
+    },
+    {
+      "testId": "TC-CTA-02",
+      "name": "Instagram Channel Link",
+      "category": "Compatibility / Interoperability",
+      "status": "PASS",
+      "durationMs": 1166,
+      "details": "Tautan Instagram resmi @kekecraft_ ditemukan.",
+      "expected": "Tautan instagram.com/kekecraft_ ditemukan",
+      "actual": "Tautan ditemukan"
+    },
+    {
+      "testId": "TC-SRC-01",
+      "name": "Search with Valid Keyword (EP Valid)",
+      "category": "Functional Suitability",
+      "status": "PASS",
+      "durationMs": 975,
+      "details": "Pencarian kata kunci valid \"tas\" berhasil mengembalikan hasil yang relevan.",
+      "expected": "Heading \"Hasil Pencarian untuk: tas\" & data produk",
+      "actual": "Hasil pencarian ditampilkan"
+    },
+    {
+      "testId": "TC-SRC-02",
+      "name": "Search with Invalid Keyword (EP Invalid)",
+      "category": "Usability / Error Handling",
+      "status": "PASS",
+      "durationMs": 1213,
+      "details": "Sistem menampilkan pesan ramah bahwa kata kunci tidak ditemukan.",
+      "expected": "Pesan \"Maaf, tidak ada yang sesuai...\"",
+      "actual": "Pesan ramah pengguna ditampilkan"
+    },
+    {
+      "testId": "TC-SRC-03",
+      "name": "Search with Empty Query (BVA Min Boundary)",
+      "category": "Reliability",
+      "status": "PASS",
+      "durationMs": 1062,
+      "details": "Permintaan pencarian parameter kosong ditangani dengan stabil tanpa crash server (HTTP 200).",
+      "expected": "Status 200 OK",
+      "actual": "Status 200"
+    },
+    {
+      "testId": "TC-SRC-04",
+      "name": "Search with Max Boundary String (200 Chars)",
+      "category": "Reliability",
+      "status": "PASS",
+      "durationMs": 1008,
+      "details": "Permintaan string batas ekstrem (200 karakter) ditangani secara stabil (HTTP 200).",
+      "expected": "Status 200 OK",
+      "actual": "Status 200"
+    },
+    {
+      "testId": "TC-SEC-01",
+      "name": "Input Sanitization against Basic XSS Injection",
+      "category": "Security",
+      "status": "PASS",
+      "durationMs": 1252,
+      "details": "Karakter tag script dinetralisasi / di-escape secara aman dan tidak dieksekusi mentah.",
+      "expected": "Tag script di-escape / tidak dieksekusi",
+      "actual": "Aman (HTML Escaped)"
+    },
+    {
+      "testId": "TC-SEC-02",
+      "name": "HTTPS Protocol & HSTS Header Verification",
+      "category": "Security",
+      "status": "PASS",
+      "durationMs": 958,
+      "details": "Koneksi diamankan dengan HTTPS dan HSTS (max-age=63072000; includeSubDomains; preload).",
+      "expected": "HTTPS & HSTS header present",
+      "actual": "HSTS: max-age=63072000; includeSubDomains; preload"
+    },
+    {
+      "testId": "TC-PERF-01",
+      "name": "Product Page Load Performance (< 3.5s)",
+      "category": "Performance Efficiency",
+      "status": "PASS",
+      "durationMs": 1121,
+      "details": "Waktu respon pemuatan halaman katalog produk adalah 1121ms (di bawah ambang batas 3500ms).",
+      "expected": "Load duration < 3500ms",
+      "actual": "1121ms"
+    }
+  ]
+}
