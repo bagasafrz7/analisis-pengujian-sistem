@@ -60,17 +60,29 @@ Penggunaan metode *Black Box Testing* dan evaluasi mutu perangkat lunak mengacu 
 
 ---
 
+## 📂 Struktur Dokumentasi QA
+
+Dokumentasi pengujian penjaminan mutu disusun secara sistematis mengacu pada standar internasional:
+- [01_TEST_PLAN_ISO_29119.md](docs/01_TEST_PLAN_ISO_29119.md) — Dokumen Rencana Pengujian (*Test Plan & Test Strategy*) berdasarkan standar ISO/IEC/IEEE 29119-3:2021.
+- [02_METRIK_KUALITAS_ISO_25010_2023.md](docs/02_METRIK_KUALITAS_ISO_25010_2023.md) — Karakteristik Mutu Perangkat Lunak (*Product Quality Model*) & Formula Evaluasi Kuantitatif ISO/IEC 25010:2023.
+- [03_TEST_CASES_BLACK_BOX.md](docs/03_TEST_CASES_BLACK_BOX.md) — Matriks & Spesifikasi Kasus Uji (*Test Cases*) dengan teknik *Equivalence Partitioning* dan *Boundary Value Analysis*.
+- [04_PEDOMAN_WAWANCARA_QA.md](docs/04_PEDOMAN_WAWANCARA_QA.md) — Panduan, instrumen 10 pertanyaan, profil kriteria narasumber, dan template transkrip wawancara praktisi QA profesional.
+
+---
+
 ## 🗺️ Roadmap Tahapan Pengerjaan
 
 - [x] **Tahap 1: Penetapan Judul & Objek Penelitian** *(Commit #1)*
-- [ ] **Tahap 2: Penyusunan Dokumentasi QA (ISO Standard Testing)**
+- [x] **Tahap 2: Penyusunan Dokumentasi QA (ISO Standard Testing)** *(Commit #2)*
   - Test Plan & Test Strategy (ISO/IEC/IEEE 29119)
   - Identifikasi Karakteristik Mutu (ISO/IEC 25010:2023)
   - Penyusunan Test Scenarios & Test Cases
+  - Penyusunan Panduan Wawancara Praktisi QA
 - [ ] **Tahap 3: Eksekusi Pengujian Sistem**
   - Pengujian Manual (*Manual Test Execution & Defect Reporting*)
   - Pengujian Otomatis (*Automated E2E Test Suite*)
 - [ ] **Tahap 4: Wawancara Praktisi QA Profesional**
-  - Penyusunan daftar pertanyaan wawancara
+  - Pelaksanaan wawancara bersama QA profesional
   - Transkrip & hasil *insight* industri QA
 - [ ] **Tahap 5: Finalisasi Laporan & Unggah Repositori GitHub**
+
