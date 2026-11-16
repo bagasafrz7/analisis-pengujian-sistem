@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QA Dashboard - Pengujian Website Keke Craft (ISO/IEC 25010:2023)</title>
+  <title>QA Dashboard - Pengujian Platform Galeri.art (ISO/IEC 25010:2023)</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -168,9 +168,9 @@
           <span class="badge badge-iso">ISO/IEC 25010:2023</span>
           <span class="badge badge-iso">ISO/IEC/IEEE 29119</span>
           <span class="badge badge-sinta">SINTA 2 & 3 Accredited</span>
-          <span class="badge badge-live">Target: galerikeke.com</span>
+          <span class="badge badge-live">Target: galeri.art</span>
         </div>
-        <h1>Analisis & Pengujian Sistem Keke Craft</h1>
+        <h1>Analisis & Pengujian Platform Galeri.art</h1>
         <p class="subtitle">Laporan Eksekutif Pengujian Fungsionalitas & Kualitas (Manual & Automated Testing) - Semester 7</p>
       </div>
     </header>
@@ -184,17 +184,17 @@
       <div class="stat-card c-blue">
         <div class="stat-label">Manual Pass Rate (FCM)</div>
         <div class="stat-value" style="color: #60a5fa;">93.3%</div>
-        <div class="stat-meta">14 Pass, 1 Minor Defect</div>
+        <div class="stat-meta">14 Pass, 1 Defect (HTTP 500)</div>
       </div>
       <div class="stat-card c-purple">
         <div class="stat-label">Rata-rata Waktu Respons</div>
-        <div class="stat-value" style="color: #a78bfa;">1.2s</div>
+        <div class="stat-value" style="color: #a78bfa;">245ms</div>
         <div class="stat-meta">Ambang Batas Maks: &lt; 3.5s</div>
       </div>
       <div class="stat-card c-yellow">
-        <div class="stat-label">Keamanan & SSL</div>
+        <div class="stat-label">Keamanan Auth & CSRF</div>
         <div class="stat-value" style="color: #fbbf24;">A+</div>
-        <div class="stat-meta">HTTPS Enforced + XSS Escaped</div>
+        <div class="stat-meta">CSRF Protection + HTTPS Enforced</div>
       </div>
     </div>
 
@@ -217,86 +217,86 @@
           <tbody>
             <tr>
               <td><code>TC-NAV-01</code></td>
-              <td>Homepage & Navigation Links</td>
+              <td>Homepage & Navigation Elements</td>
               <td>Functional Suitability</td>
-              <td>2.48s</td>
+              <td>0.91s</td>
               <td><span class="status-pill status-pass">PASS</span></td>
             </tr>
             <tr>
-              <td><code>TC-NAV-02</code></td>
-              <td>Product Catalog Page Verification</td>
+              <td><code>TC-AUTH-01</code></td>
+              <td>Login Page Availability & Input Field</td>
+              <td>Functional Suitability (Auth)</td>
+              <td>0.07s</td>
+              <td><span class="status-pill status-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td><code>TC-AUTH-02</code></td>
+              <td>Register Page Form & Fields</td>
+              <td>Functional Suitability (Auth)</td>
+              <td>0.06s</td>
+              <td><span class="status-pill status-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td><code>TC-AUTH-03</code></td>
+              <td>Authentication CSRF Token Generator</td>
+              <td>Security (Integrity)</td>
+              <td>0.03s</td>
+              <td><span class="status-pill status-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td><code>TC-AUTH-04</code></td>
+              <td>Missing CSRF Protection on Callback</td>
+              <td>Security (Resistance)</td>
+              <td>0.03s</td>
+              <td><span class="status-pill status-pass">PASS</span></td>
+            </tr>
+            <tr>
+              <td><code>TC-CAT-01</code></td>
+              <td>Artworks Catalog & Filter Form</td>
               <td>Functional Suitability</td>
-              <td>1.16s</td>
+              <td>0.55s</td>
               <td><span class="status-pill status-pass">PASS</span></td>
             </tr>
             <tr>
-              <td><code>TC-NAV-03</code></td>
-              <td>About Us Page Verification</td>
+              <td><code>TC-CAT-02</code></td>
+              <td>Artists Directory & Profiles</td>
               <td>Functional Suitability</td>
-              <td>1.15s</td>
-              <td><span class="status-pill status-pass">PASS</span></td>
-            </tr>
-            <tr>
-              <td><code>TC-CTA-01</code></td>
-              <td>WhatsApp Direct Order CTA</td>
-              <td>Compatibility / Interop</td>
-              <td>1.28s</td>
-              <td><span class="status-pill status-pass">PASS</span></td>
-            </tr>
-            <tr>
-              <td><code>TC-CTA-02</code></td>
-              <td>Instagram Channel Link</td>
-              <td>Compatibility / Interop</td>
-              <td>1.16s</td>
+              <td>0.12s</td>
               <td><span class="status-pill status-pass">PASS</span></td>
             </tr>
             <tr>
               <td><code>TC-SRC-01</code></td>
-              <td>Search Valid Keyword ("tas")</td>
+              <td>Category Query Parameter (EP Valid)</td>
               <td>Functional Correctness</td>
-              <td>0.97s</td>
+              <td>0.23s</td>
               <td><span class="status-pill status-pass">PASS</span></td>
             </tr>
             <tr>
               <td><code>TC-SRC-02</code></td>
-              <td>Search Invalid Keyword (EP Invalid)</td>
-              <td>User Error Protection</td>
-              <td>1.21s</td>
-              <td><span class="status-pill status-pass">PASS</span></td>
-            </tr>
-            <tr>
-              <td><code>TC-SRC-03</code></td>
-              <td>Search Empty Query (BVA Min)</td>
+              <td>Max Length Query String (BVA 250 Chars)</td>
               <td>Reliability & Robustness</td>
-              <td>1.06s</td>
-              <td><span class="status-pill status-pass">PASS</span></td>
-            </tr>
-            <tr>
-              <td><code>TC-SRC-04</code></td>
-              <td>Search 200 Chars (BVA Max)</td>
-              <td>Reliability & Robustness</td>
-              <td>1.00s</td>
+              <td>0.16s</td>
               <td><span class="status-pill status-pass">PASS</span></td>
             </tr>
             <tr>
               <td><code>TC-SEC-01</code></td>
-              <td>Input Sanitization vs Basic XSS</td>
-              <td>Security (Resistance)</td>
-              <td>1.25s</td>
+              <td>Input Sanitization against XSS Injection</td>
+              <td>Security (Integrity)</td>
+              <td>0.23s</td>
               <td><span class="status-pill status-pass">PASS</span></td>
             </tr>
             <tr>
               <td><code>TC-SEC-02</code></td>
-              <td>HTTPS & HSTS Protocol Enforce</td>
+              <td>HTTPS Protocol & Transport Encryption</td>
               <td>Security (Confidentiality)</td>
-              <td>0.95s</td>
+              <td>0.35s</td>
               <td><span class="status-pill status-pass">PASS</span></td>
             </tr>
             <tr>
               <td><code>TC-PERF-01</code></td>
               <td>Catalog Page Load Performance</td>
               <td>Performance Efficiency</td>
-              <td>1.12s</td>
+              <td>0.17s</td>
               <td><span class="status-pill status-pass">PASS</span></td>
             </tr>
           </tbody>
@@ -323,40 +323,40 @@
           <div class="progress-item">
             <div class="progress-head">
               <span>Performance Efficiency</span>
-              <span style="font-weight: 700; color: #34d399;">98.0%</span>
+              <span style="font-weight: 700; color: #34d399;">98.5%</span>
             </div>
             <div class="progress-bar-bg">
-              <div class="progress-fill" style="width: 98%; background: #10b981;"></div>
+              <div class="progress-fill" style="width: 98.5%; background: #10b981;"></div>
             </div>
           </div>
 
           <div class="progress-item">
             <div class="progress-head">
               <span>Usability & Accessibility</span>
-              <span style="font-weight: 700; color: #a78bfa;">90.0%</span>
+              <span style="font-weight: 700; color: #a78bfa;">92.0%</span>
             </div>
             <div class="progress-bar-bg">
-              <div class="progress-fill" style="width: 90%; background: #8b5cf6;"></div>
+              <div class="progress-fill" style="width: 92%; background: #8b5cf6;"></div>
             </div>
           </div>
 
           <div class="progress-item">
             <div class="progress-head">
-              <span>Compatibility (Cross-Platform)</span>
-              <span style="font-weight: 700; color: #38bdf8;">100%</span>
+              <span>Security & CSRF Protection</span>
+              <span style="font-weight: 700; color: #fbbf24;">96.0%</span>
             </div>
             <div class="progress-bar-bg">
-              <div class="progress-fill" style="width: 100%; background: #0ea5e9;"></div>
+              <div class="progress-fill" style="width: 96%; background: #f59e0b;"></div>
             </div>
           </div>
 
           <div class="progress-item">
             <div class="progress-head">
-              <span>Security Baseline</span>
-              <span style="font-weight: 700; color: #fbbf24;">95.0%</span>
+              <span>Reliability (Fault Tolerance)</span>
+              <span style="font-weight: 700; color: #38bdf8;">86.7%</span>
             </div>
             <div class="progress-bar-bg">
-              <div class="progress-fill" style="width: 95%; background: #f59e0b;"></div>
+              <div class="progress-fill" style="width: 86.7%; background: #0ea5e9;"></div>
             </div>
           </div>
         </div>
@@ -367,12 +367,12 @@
             <span>Laporan Defect Temuan Riil</span>
           </div>
           <div class="defect-card">
-            <div class="defect-title">DEF-001: Dimensi Produk Kosong pada Katalog</div>
+            <div class="defect-title">DEF-001: Unhandled HTTP 500 pada Slug Tidak Ditemukan</div>
             <div class="defect-desc">
-              Pada item tas <em>"Alexander 02"</em> dan <em>"Kotak Tisu Anyaman Pandan"</em> tertera label <code>Dimensi : </code> tanpa angka spesifikasi ukuran.
+              Ketika pengguna mengakses slug dinamis karya atau artis yang tidak terdaftar di database (misal: <code>/artworks/item-palsu-xyz</code>), server mengembalikan galat <strong>HTTP 500</strong> alih-alih merender halaman ramah <strong>404 Not Found</strong>.
             </div>
             <div style="margin-top: 10px; font-size: 0.75rem; color: #9ca3af;">
-              Severity: <strong>Medium</strong> | Status: <strong>Open (Reported to UMKM)</strong>
+              Severity: <strong>Medium/High</strong> | Status: <strong>Open (Reported)</strong>
             </div>
           </div>
         </div>
@@ -384,9 +384,8 @@
       <p style="font-size: 0.8rem; margin-bottom: 12px; color: #9ca3af;">
         Bagas Afrizal (231011400204) &bull; Abdul Hafizh Ar Rasyid (231011403352) &bull; Aditya Eka Purnama (231011400988) &bull; Syaifa Maulana (231011401802)
       </p>
-      <p style="font-size: 0.75rem; color: #6b7280;">Proyek Pengujian & Penjaminan Mutu Perangkat Lunak Berbasis ISO/IEC 25010:2023 &bull; November 2026</p>
+      <p style="font-size: 0.75rem; color: #6b7280;">Proyek Pengujian & Penjaminan Mutu Perangkat Lunak Berbasis ISO/IEC 25010:2023 &bull; Target: https://galeri.art/ &bull; November 2026</p>
     </footer>
   </div>
 </body>
 </html>
-

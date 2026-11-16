@@ -1,7 +1,7 @@
 # LAPORAN HASIL EKSEKUSI PENGUJIAN OTOMATIS (AUTOMATED TEST REPORT)
 ## Framework: Node.js Automated Black Box Test Runner
 ## Standar Acuan: ISO/IEC 25010:2023 & ISO/IEC/IEEE 29119
-## Target URL: https://www.galerikeke.com/
+## Target URL: https://galeri.art/
 
 ---
 
@@ -17,8 +17,8 @@
 | **Total Test Case Otomatis** | 12 |
 | **Passed (Lolos)** | 12 (100%) |
 | **Failed (Gagal)** | 0 (0%) |
-| **Rata-rata Durasi Per Test** | 1.233 ms (~1.2 detik) |
-| **Total Waktu Eksekusi** | ~14.8 detik |
+| **Rata-rata Durasi Per Test** | ~245 ms (< 0.3 detik) |
+| **Total Waktu Eksekusi** | ~3.0 detik |
 
 ---
 
@@ -26,35 +26,34 @@
 
 | Test ID | Nama Kasus Uji | Kategori ISO 25010 | Durasi (ms) | Status | Hasil Aktual |
 | :--- | :--- | :--- | :---: | :---: | :--- |
-| `TC-NAV-01` | Homepage Availability & Links | Functional Suitability | 2481 ms | **PASS** | Status 200 OK, Elemen navigasi terdeteksi |
-| `TC-NAV-02` | Product Catalog Page Verification | Functional Suitability | 1160 ms | **PASS** | Status 200 OK, Heading "PRODUK KEKE CRAFT" |
-| `TC-NAV-03` | About Us Page Verification | Functional Suitability | 1150 ms | **PASS** | Status 200 OK, Profil Keke Craft aktif |
-| `TC-CTA-01` | WhatsApp Direct Order CTA | Compatibility (Interoperability) | 1288 ms | **PASS** | Tautan wa.me/6281386058147 valid |
-| `TC-CTA-02` | Instagram Channel Link | Compatibility (Interoperability) | 1166 ms | **PASS** | Tautan instagram.com/kekecraft_ valid |
-| `TC-SRC-01` | Search with Valid Keyword (EP Valid) | Functional Correctness | 975 ms | **PASS** | Hasil pencarian "tas" ditampilkan |
-| `TC-SRC-02` | Search with Invalid Keyword (EP Invalid) | Usability (Error Handling) | 1213 ms | **PASS** | Pesan "tidak ada yang sesuai" muncul |
-| `TC-SRC-03` | Search with Empty Query (BVA Min) | Reliability & Robustness | 1062 ms | **PASS** | Status 200 OK, Tidak ada error server |
-| `TC-SRC-04` | Search with 200 Chars Query (BVA Max) | Reliability & Robustness | 1008 ms | **PASS** | Status 200 OK, Ditangani secara stabil |
-| `TC-SEC-01` | Input Sanitization against XSS | Security (Resistance) | 1252 ms | **PASS** | Tag script dinetralisasi / di-escape |
-| `TC-SEC-02` | HTTPS Protocol & HSTS Header | Security (Confidentiality) | 958 ms | **PASS** | Enforce HTTPS aktif |
-| `TC-PERF-01` | Product Page Load Performance | Performance Efficiency | 1121 ms | **PASS** | Durasi 1121 ms (< ambang batas 3500 ms) |
+| `TC-NAV-01` | Homepage Availability & Links | Functional Suitability | 914 ms | **PASS** | Status 200 OK, Elemen navigasi terdeteksi |
+| `TC-AUTH-01` | Login Page Availability & Input | Functional Suitability | 67 ms | **PASS** | Status 200 OK, Form login email passwordless aktif |
+| `TC-AUTH-02` | Register Page Form & Fields | Functional Suitability | 57 ms | **PASS** | Status 200 OK, Kolom Nama & Email terverifikasi |
+| `TC-AUTH-03` | Authentication CSRF Token Generator | Security (Integrity) | 35 ms | **PASS** | Status 200 OK, Token CSRF 64-hex string valid |
+| `TC-AUTH-04` | Missing CSRF Protection Callback | Security (Resistance) | 32 ms | **PASS** | Request dicegat, dialihkan ke `error=MissingCSRF` |
+| `TC-CAT-01` | Artworks Catalog & Filter Form | Functional Suitability | 554 ms | **PASS** | Status 200 OK, Filter dan input pencarian aktif |
+| `TC-CAT-02` | Artists Directory Verification | Functional Suitability | 121 ms | **PASS** | Status 200 OK, Profil seniman nusantara aktif |
+| `TC-SRC-01` | Category Query Parameter (EP Valid) | Functional Correctness | 231 ms | **PASS** | Parameter `categoryId` direspon 200 OK |
+| `TC-SRC-02` | Max Length Query String (BVA 250 Chars)| Reliability & Robustness | 160 ms | **PASS** | Status 200 OK, Ditangani stabil tanpa timeout |
+| `TC-SEC-01` | Input Sanitization against XSS | Security (Integrity) | 227 ms | **PASS** | Tag script dinetralisasi / di-escape secara aman |
+| `TC-SEC-02` | HTTPS Protocol & Transport Encryption| Security (Confidentiality)| 355 ms | **PASS** | Koneksi aman HTTPS 200 OK |
+| `TC-PERF-01` | Catalog Page Load Performance | Performance Efficiency | 168 ms | **PASS** | Durasi 168 ms (Jauh di bawah batas 3500 ms) |
 
 ---
 
 ## 3. Analisis Hasil Berdasarkan Karakteristik ISO/IEC 25010:2023
 
-### 3.1 Functional Suitability & Correctness
-Seluruh endpoint utama web Keke Craft (`/`, `/product/`, `/about-us/`) berhasil dijangkau dan mengembalikan kode status HTTP `200 OK`. Konten judul, heading produk kriya, serta tautan navigasi berfungsi dengan benar secara otomatis.
+### 3.1 Functional Suitability & Authentication Completeness
+Endpoint utama platform Galeri.art (`/`, `/login`, `/register`, `/artworks`, `/artists`) beroperasi dengan kode status HTTP `200 OK`. Keberadaan form login email passwordless dan pendaftaran akun baru melengkapi kebutuhan fungsionalitas pengguna modern.
 
-### 3.2 Compatibility & Interoperability
-Tautan integrasi pihak ketiga (WhatsApp Direct Chat dan Instagram resmi) terpasang dengan format URI yang tepat sehingga pengguna dapat langsung beralih ke aplikasi komunikasi eksternal tanpa terputus.
+### 3.2 Security Baseline & CSRF Protection
+Pengujian membuktikan bahwa platform Galeri.art memiliki postur keamanan autentikasi yang sangat baik:
+- Endpoint `/api/auth/csrf` secara konsisten menghasilkan token CSRF kriptografis unik.
+- Permintaan submit otentikasi tanpa menyertakan CSRF token yang sah langsung dicegat dan dialihkan secara aman ke URL `/login?error=MissingCSRF`.
+- Karakter injeksi tag script dinetralisasi oleh mekanisme escaping bawaan React/Next.js.
 
-### 3.3 Reliability & Input Robustness (EP & BVA)
-Melalui teknik *Equivalence Partitioning* dan *Boundary Value Analysis*, pengujian otomatis membuktikan bahwa mesin pencarian WordPress pada website Keke Craft memiliki toleransi yang tinggi terhadap masukan ekstrim (string 200 karakter) maupun parameter kosong tanpa menimbulkan galat *Internal Server Error 500*.
+### 3.3 Reliability & Input Robustness (BVA Max 250 Karakter)
+Melalui teknik *Boundary Value Analysis*, pengujian otomatis membuktikan bahwa server Next.js dan Nginx pada Galeri.art memiliki ketahanan tinggi terhadap masukan string panjang berulang (250 karakter) tanpa menimbulkan kegagalan *Internal Server Error 500* pada query string.
 
 ### 3.4 Performance Efficiency (Time Behavior)
-Waktu respons halaman produk berada pada angka **1.121 ms (~1.1 detik)**, jauh di bawah batas toleransi maksimal yang ditetapkan (3.500 ms). Hal ini membuktikan efisiensi performa server LiteSpeed dan caching yang diimplementasikan pada website Keke Craft.
-
-### 3.5 Security Baseline
-Uji coba injeksi script antarmuka membuktikan bahwa input karakter khusus tidak langsung dieksekusi mentah pada DOM browser, melainkan mengalami proses *encoding* entitas HTML yang aman. Protokol HTTPS juga terpasang dengan enkripsi SSL modern.
-
+Waktu respons pemuatan halaman katalog karya seni tercatat sangat cepat, yaitu **168 ms (~0.16 detik)** untuk pengujian performa dan rata-rata keseluruhan **245 ms**. Nilai ini jauh melampaui target ambang batas yang ditetapkan ($\le 3.500\text{ ms}$), membuktikan efisiensi kompilasi server-side rendering (SSR) Next.js dan reverse proxy Nginx.
