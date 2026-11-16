@@ -1,6 +1,7 @@
 # SPESIFIKASI TEST SCENARIOS & TEST CASES
+## Objek Uji: Platform Galeri.art (https://galeri.art/)
 ## Metode: Black Box Testing (Equivalence Partitioning & Boundary Value Analysis)
-## Standar: ISO/IEC/IEEE 29119 & ISO/IEC 25010:2023
+## Standar Acuan: ISO/IEC/IEEE 29119 & ISO/IEC 25010:2023
 
 ---
 
@@ -8,168 +9,113 @@
 
 | Modul | Kode | Deskripsi Pengujian |
 | :--- | :--- | :--- |
+| **Autentikasi Pengguna** | `MOD-AUTH` | Pengujian form Login passwordless, Register, dan proteksi CSRF |
 | **Navigasi & Tata Letak** | `MOD-NAV` | Pengujian menu utama, header, dan struktur navigasi situs |
-| **Katalog Produk** | `MOD-CAT` | Pengujian tampilan katalog, detail dimensi ukuran kerajinan pandan |
-| **Call-to-Action (CTA)** | `MOD-CTA` | Pengujian tombol penghubung eksternal (WhatsApp, Instagram, Facebook) |
-| **Fungsi Pencarian** | `MOD-SRC` | Pengujian fitur pencarian produk dengan teknik EP & BVA |
-| **Keamanan & Validasi** | `MOD-SEC` | Pengujian sanitasi input XSS sederhana dan validasi enkripsi HTTPS |
-| **Performa & Responsif** | `MOD-RSP` | Pengujian waktu muat dan keluwesan tampilan pada perangkat *mobile* |
+| **Katalog Karya Seni** | `MOD-CAT` | Pengujian tampilan katalog karya seni dan direktori seniman |
+| **Filter & Pencarian** | `MOD-FLT` | Pengujian filter kategori, rentang harga, dan parameter query |
+| **Keamanan & Validasi** | `MOD-SEC` | Pengujian sanitasi input XSS dan pengujian proteksi token CSRF |
+| **Keandalan & Error Handling** | `MOD-REL` | Pengujian respon terhadap slug tidak ditemukan dan masukan ekstrem |
+| **Performa & Responsif** | `MOD-RSP` | Pengujian waktu muat dan responsivitas tampilan perangkat *mobile* |
 
 ---
 
 ## 2. Rincian Kasus Uji (Test Cases)
 
-### Modul 1: Navigasi Menu & Header (MOD-NAV)
+### Modul 1: Autentikasi Pengguna (MOD-AUTH)
 
-#### TC-NAV-01: Pengujian Tautan Menu Beranda (Home)
-* **Karakteristik ISO:** *Functional Suitability (Functional Correctness)*
-* **Prasyarat:** Pengguna membuka peramban web pada halaman manapun di situs Keke Craft.
-* **Langkah Pengujian:**
-  1. Akses halaman `https://www.galerikeke.com/about-us/`.
-  2. Klik menu **"Home"** pada navigation bar.
-* **Data Uji:** Klik tautan `https://www.galerikeke.com/`.
-* **Hasil yang Diharapkan:** Peramban diarahkan ke halaman utama (`/`), konten hero banner Keke Craft tampil lengkap, HTTP status 200.
-
-#### TC-NAV-02: Pengujian Tautan Menu Produk (Product)
-* **Karakteristik ISO:** *Functional Suitability (Functional Correctness)*
-* **Prasyarat:** Pengguna berada di halaman utama `https://www.galerikeke.com/`.
-* **Langkah Pengujian:**
-  1. Klik menu **"Product"** pada navigation bar.
-* **Data Uji:** Klik tautan `https://www.galerikeke.com/product/`.
-* **Hasil yang Diharapkan:** Halaman katalog produk terbuka dengan judul "PRODUK KEKE CRAFT", HTTP status 200.
-
-#### TC-NAV-03: Pengujian Tautan Menu Profil (About Us)
-* **Karakteristik ISO:** *Functional Suitability (Functional Correctness)*
-* **Prasyarat:** Pengguna berada di halaman utama `https://www.galerikeke.com/`.
-* **Langkah Pengujian:**
-  1. Klik menu **"About Us"** pada navigation bar.
-* **Data Uji:** Klik tautan `https://www.galerikeke.com/about-us/`.
-* **Hasil yang Diharapkan:** Halaman profil UMKM Keke Craft terbuka, menampilkan teks sejarah sejak tahun 2021 dan filosofi anyaman pandan.
-
----
-
-### Modul 2: Katalog Produk Kriya (MOD-CAT)
-
-#### TC-CAT-01: Verifikasi Visualisasi Grid Produk Kriya
-* **Karakteristik ISO:** *Functional Suitability & Usability*
-* **Prasyarat:** Halaman `https://www.galerikeke.com/product/` telah dimuat.
-* **Langkah Pengujian:**
-  1. Gulir (*scroll*) ke bawah pada daftar produk kriya.
-  2. Periksa keberadaan foto produk, judul produk, dan deskripsi dimensi ukuran.
-* **Data Uji:** Item katalog (Tote Bag AGDA, BONITA, ALICE, CAYAPATA, Cakrajiya Laptop Sleeve).
-* **Hasil yang Diharapkan:** Gambar produk dirender dengan baik tanpa gambar rusak (*broken image icon*), label nama dan dimensi tertera jelas.
-
-#### TC-CAT-02: Pemeriksaan Kelengkapan Informasi Dimensi Ukuran
+#### TC-AUTH-01: Verifikasi Ketersediaan & Struktur Halaman Login
 * **Karakteristik ISO:** *Functional Suitability (Functional Completeness)*
-* **Prasyarat:** Berada di halaman `/product/`.
+* **Prasyarat:** Pengguna mengakses peramban web pada alamat `https://galeri.art/login`.
 * **Langkah Pengujian:**
-  1. Periksa setiap deskripsi produk kerajinan di bawah gambar.
-* **Data Uji:** Seluruh elemen teks dimensi produk.
-* **Hasil yang Diharapkan:** Setiap produk yang tercantum memiliki dimensi ukuran yang spesifik (misal: "34 x 10 x 27 Cm").
+  1. Akses halaman `https://galeri.art/login`.
+  2. Periksa keberadaan form input email, teks instruksi *"Kami mengirim kode masuk ke email Anda. Tidak perlu kata sandi."*, tombol *"Kirim kode masuk"*, dan tautan pendaftaran *"Daftar"*.
+* **Hasil yang Diharapkan:** Halaman login berhasil dimuat dengan status HTTP 200, elemen form email tersedia dan aktif.
 
----
-
-### Modul 3: Integrasi Call-to-Action (MOD-CTA)
-
-#### TC-CTA-01: Verifikasi Tombol Pemesanan Langsung WhatsApp
-* **Karakteristik ISO:** *Compatibility (Interoperability) & Functional Correctness*
-* **Prasyarat:** Berada di halaman beranda `/`.
-* **Langkah Pengujian:**
-  1. Gulir ke bagian "Hubungi Kami".
-  2. Klik ikon atau tautan WhatsApp.
-* **Data Uji:** Tautan `https://wa.me/6281386058147`.
-* **Hasil yang Diharapkan:** Pengguna dialihkan ke domain resmi WhatsApp API (`wa.me` / `api.whatsapp.com`) yang terhubung dengan nomor telepon resmi Keke Craft (`+62 813-8605-8147`).
-
-#### TC-CTA-02: Verifikasi Tautan Akun Instagram Resmi
-* **Karakteristik ISO:** *Functional Correctness & Compatibility*
-* **Prasyarat:** Berada di footer atau bagian kontak website.
-* **Langkah Pengujian:**
-  1. Klik ikon Instagram.
-* **Data Uji:** Tautan `https://www.instagram.com/kekecraft_`.
-* **Hasil yang Diharapkan:** Membuka tab baru yang mengarah ke profil Instagram `@kekecraft_` tanpa galat 404.
-
-#### TC-CTA-03: Verifikasi Tautan Halaman Facebook Resmi
-* **Karakteristik ISO:** *Functional Correctness & Compatibility*
-* **Prasyarat:** Berada di footer atau bagian kontak website.
-* **Langkah Pengujian:**
-  1. Klik ikon Facebook.
-* **Data Uji:** Tautan `https://www.facebook.com/share/18mBgD3fpP/`.
-* **Hasil yang Diharapkan:** Mengarahkan ke halaman Facebook resmi Keke Craft.
-
----
-
-### Modul 4: Pengujian Fitur Pencarian (MOD-SRC)
-*Teknik: Equivalence Partitioning (EP) dan Boundary Value Analysis (BVA)*
-
-#### TC-SRC-01: Pencarian dengan Kata Kunci Valid (EP - Valid Partition)
-* **Karakteristik ISO:** *Functional Correctness*
-* **Teknik:** Equivalence Partitioning (Input data produk yang eksis).
-* **Langkah Pengujian:**
-  1. Masukkan kata kunci "tas" atau "pandan" pada endpoint pencarian.
-* **Data Uji:** `https://www.galerikeke.com/?s=tas`.
-* **Hasil yang Diharapkan:** Halaman menampilkan judul "Hasil Pencarian untuk: tas" dan memuat artikel/katalog terkait produk tas anyaman pandan.
-
-#### TC-SRC-02: Pencarian dengan Kata Kunci Tidak Ditemukan (EP - Invalid Partition)
+#### TC-AUTH-02: Validasi Format Email pada Form Login (EP - Invalid Partition)
 * **Karakteristik ISO:** *Usability (User Error Protection)*
-* **Teknik:** Equivalence Partitioning (Input data yang tidak ada di sistem).
+* **Teknik:** Equivalence Partitioning (Input format email invalid).
 * **Langkah Pengujian:**
-  1. Masukkan kata kunci acak yang tidak berhubungan dengan produk.
-* **Data Uji:** `https://www.galerikeke.com/?s=produkxyzabckosong999`.
-* **Hasil yang Diharapkan:** Sistem tidak mengalami *crash/blank page*, melainkan menampilkan pesan ramah: *"Maaf, tidak ada yang sesuai dengan kata kunci Anda. Silahkan coba lagi dengan kata kunci lain."*
+  1. Masukkan string tanpa domain atau simbol at (misal: `pengguna-tanpa-email`) ke kolom email.
+  2. Klik tombol *"Kirim kode masuk"*.
+* **Hasil yang Diharapkan:** Peramban/sistem memvalidasi atribut `type="email"` dan menampilkan pesan peringatan validasi peramban (*"Please include an '@' in the email address"*).
 
-#### TC-SRC-03: Pencarian dengan Nilai Parameter Kosong (BVA - Boundary Min)
-* **Karakteristik ISO:** *Functional Suitability & Robustness*
-* **Teknik:** Boundary Value Analysis (Panjang karakter masukan = 0).
+#### TC-AUTH-03: Verifikasi Ketersediaan & Struktur Halaman Register
+* **Karakteristik ISO:** *Functional Suitability (Functional Completeness)*
+* **Prasyarat:** Pengguna membuka `https://galeri.art/register`.
 * **Langkah Pengujian:**
-  1. Akses parameter pencarian tanpa memasukkan teks query.
-* **Data Uji:** `https://www.galerikeke.com/?s=`.
-* **Hasil yang Diharapkan:** Sistem menangani permintaan dengan wajar, mengembalikan respon status 200 OK tanpa galat fatal server.
+  1. Akses halaman `https://galeri.art/register`.
+  2. Amati elemen antarmuka: input *"Nama"*, input *"Email"*, dan tombol *"Buat Akun"*.
+* **Hasil yang Diharapkan:** Form registrasi tampil lengkap, input nama dan email dapat menerima masukan teks, status HTTP 200.
 
-#### TC-SRC-04: Pencarian dengan Karakter Panjang Ekstrem (BVA - Boundary Max)
+#### TC-AUTH-04: Verifikasi Pembangkitan Token CSRF Keamanan Auth
+* **Karakteristik ISO:** *Security (Integrity & Non-repudiation)*
+* **Langkah Pengujian:**
+  1. Lakukan request GET ke endpoint API CSRF `https://galeri.art/api/auth/csrf`.
+* **Hasil yang Diharapkan:** Server merespon status 200 dengan payload JSON berisi properti `csrfToken` sepanjang minimal 32 karakter hexadecimal.
+
+#### TC-AUTH-05: Proteksi Permintaan Otentikasi Tanpa Token CSRF
+* **Karakteristik ISO:** *Security (Resistance)*
+* **Langkah Pengujian:**
+  1. Kirim permintaan POST langsung ke `/api/auth/callback/credentials` tanpa menyertakan token CSRF yang valid.
+* **Hasil yang Diharapkan:** Server menolak otentikasi liar dan mengalihkan (*redirect*) ke URL `/login?error=MissingCSRF`.
+
+---
+
+### Modul 2: Navigasi Menu & Header (MOD-NAV)
+
+#### TC-NAV-01: Verifikasi Navigasi Beranda ke Katalog Karya (/artworks)
+* **Karakteristik ISO:** *Functional Suitability (Functional Correctness)*
+* **Langkah Pengujian:**
+  1. Dari beranda `https://galeri.art/`, klik menu *"Koleksi karya"* atau tombol jelajah karya.
+* **Hasil yang Diharapkan:** Peramban diarahkan ke `https://galeri.art/artworks`, menampilkan grid karya seni kriya nusantara, status HTTP 200.
+
+#### TC-NAV-02: Verifikasi Navigasi ke Halaman Direktori Seniman (/artists)
+* **Karakteristik ISO:** *Functional Suitability (Functional Correctness)*
+* **Langkah Pengujian:**
+  1. Klik menu *"Seniman & artisan"* pada navigasi.
+* **Hasil yang Diharapkan:** Membuka `https://galeri.art/artists`, menampilkan daftar artisan lokal (misal: Tabita Quilts, Princessories, Wastra Tunggal).
+
+---
+
+### Modul 3: Katalog & Filter Pencarian (MOD-FLT)
+
+#### TC-FLT-01: Filter Katalog Berdasarkan ID Kategori (EP Valid)
+* **Karakteristik ISO:** *Functional Correctness*
+* **Langkah Pengujian:**
+  1. Akses URL katalog dengan parameter kategori: `https://galeri.art/artworks?categoryId=db165d31-ee33-48e5-9477-96028e31e54a`.
+* **Hasil yang Diharapkan:** Halaman menampilkan koleksi karya yang telah difilter sesuai kategori yang dipilih tanpa galat rendering.
+
+#### TC-FLT-02: Pengujian Masukan Batas Ekstrem pada Parameter Query (BVA Max)
 * **Karakteristik ISO:** *Reliability & Robustness*
-* **Teknik:** Boundary Value Analysis (Panjang string 200 karakter berulang).
+* **Teknik:** Boundary Value Analysis (Panjang karakter query = 250 karakter).
 * **Langkah Pengujian:**
-  1. Masukkan string panjang berulang ke parameter `s`.
-* **Data Uji:** `/?s=` + 200 karakter `"A"`.
-* **Hasil yang Diharapkan:** Server tetap merespon dengan status 200, string dipotong atau ditampilkan aman tanpa merusak layout antarmuka situs.
+  1. Akses `https://galeri.art/artworks?q=` disertai string panjang berulang sebanyak 250 karakter.
+* **Hasil yang Diharapkan:** Server tetap stabil merespon status 200 OK tanpa mengalami *crash* atau *gateway timeout*.
 
 ---
 
-### Modul 5: Keamanan Antarmuka & Validasi Masukan (MOD-SEC)
+### Modul 4: Keandalan & Penanganan Galat (MOD-REL)
 
-#### TC-SEC-01: Pengujian Sanitasi Masukan Karakter Khusus / Basic XSS
-* **Karakteristik ISO:** *Security (Integrity & Resistance)*
-* **Teknik:** Black Box Fault Injection.
+#### TC-REL-01: Penanganan Akses Slug Karya Seni Tidak Ditemukan
+* **Karakteristik ISO:** *Reliability (Fault Tolerance & Recoverability)*
 * **Langkah Pengujian:**
-  1. Masukkan payload tag HTML/Script ke query pencarian: `<script>alert('QA-TEST')</script>`.
-  2. Periksa kode HTML sumber dari respon halaman.
-* **Data Uji:** `https://www.galerikeke.com/?s=%3Cscript%3Ealert(%27QA-TEST%27)%3C/script%3E`.
-* **Hasil yang Diharapkan:** Tag script dinetralisasi / di-escape secara otomatis menjadi entitas HTML teks biasa sehingga tidak dieksekusi oleh peramban klien.
-
-#### TC-SEC-02: Verifikasi Enforce HTTPS / SSL Certificate
-* **Karakteristik ISO:** *Security (Confidentiality)*
-* **Langkah Pengujian:**
-  1. Akses alamat web menggunakan protokol tidak aman `http://www.galerikeke.com/`.
-  2. Periksa pengalihan otomatis (*redirection*) dan keabsahan sertifikat TLS.
-* **Data Uji:** Request via HTTP port 80.
-* **Hasil yang Diharapkan:** Server otomatis mengalihkan koneksi ke `https://` (Enforced HTTPS) dengan sertifikat SSL yang valid dan tidak kadaluwarsa.
+  1. Masukkan URL karya seni dengan slug acak yang tidak terdaftar: `https://galeri.art/artworks/slug-tidak-ditemukan-xyz123`.
+  2. Amati kode status respons HTTP dan tampilan antarmuka.
+* **Hasil yang Diharapkan:** Sistem menampilkan halaman *404 Not Found* yang ramah pengguna.
+* **Hasil Aktual:** Server mengalami galat *Internal Server Error (HTTP 500)* tanpa halaman error yang informatif (**Defect `DEF-001`**).
 
 ---
 
-### Modul 6: Kinerja & Responsivitas Antarmuka (MOD-RSP)
+### Modul 5: Keamanan & Performa (MOD-SEC & MOD-PERF)
 
-#### TC-RSP-01: Responsivitas Tampilan pada Layar Smartphone Mobile
-* **Karakteristik ISO:** *Compatibility & Usability*
-* **Prasyarat:** Peramban web dengan Developer Tools Responsive Mode aktif.
+#### TC-SEC-01: Sanitasi Masukan Karakter Khusus / Basic XSS
+* **Karakteristik ISO:** *Security (Integrity)*
 * **Langkah Pengujian:**
-  1. Atur viewport ke ukuran layar 375x667 piksel (iPhone SE/XR/12).
-  2. Periksa tampilan menu navigasi (hamburger button), teks, dan gambar produk.
-* **Data Uji:** Viewport width 375px & 414px.
-* **Hasil yang Diharapkan:** Tidak terjadi overflow horizontal yang memotong teks; tombol hamburger menu berfungsi membuka menu navigasi di perangkat *mobile*.
+  1. Masukkan payload script `<script>alert('QA')</script>` ke parameter query pencarian karya.
+* **Hasil yang Diharapkan:** Tag script dinetralisasi / di-escape secara aman oleh mekanisme React/Next.js sehingga tidak dieksekusi mentah pada peramban klien.
 
-#### TC-PERF-01: Pengukuran Waktu Muat Halaman (Page Load Time)
+#### TC-PERF-01: Pengukuran Waktu Muat Halaman Katalog (/artworks)
 * **Karakteristik ISO:** *Performance Efficiency (Time Behavior)*
 * **Langkah Pengujian:**
-  1. Ukur durasi waktu respons server (TTFB) dan penyelesaian unduhan dokumen pada halaman beranda dan katalog.
-* **Data Uji:** Akses `https://www.galerikeke.com/` dan `https://www.galerikeke.com/product/`.
-* **Hasil yang Diharapkan:** Waktu muat dokumen utama berada dalam toleransi $< 3.5$ detik pada jaringan stabil.
+  1. Ukur durasi unduh dokumen lengkap halaman `/artworks`.
+* **Hasil yang Diharapkan:** Durasi pemuatan dokumen berada di bawah ambang batas $< 3.5\text{ detik}$ (Hasil aktual tercatat ~554 ms).

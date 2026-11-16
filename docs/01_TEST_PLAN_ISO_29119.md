@@ -6,13 +6,13 @@
 ### Informasi Dokumen
 | Parameter | Deskripsi |
 | :--- | :--- |
-| **Judul Proyek** | Analisis Pengujian Kualitas dan Fungsionalitas Website Keke Craft Menggunakan Metode Black Box Testing Berdasarkan Standar ISO/IEC 25010:2023 |
-| **Nama Aplikasi / Target** | Website Resmi Keke Craft Tangerang |
-| **URL Target** | [https://www.galerikeke.com/](https://www.galerikeke.com/) |
+| **Judul Proyek** | Analisis Pengujian Kualitas dan Fungsionalitas Platform Galeri.art Menggunakan Metode Black Box Testing Berdasarkan Standar ISO/IEC 25010:2023 |
+| **Nama Aplikasi / Target** | Platform Galeri (Rumah bagi Seni, Kriya, dan Cerita Nusantara) |
+| **URL Target** | [https://galeri.art/](https://galeri.art/) |
 | **Tim Penyusun (Kelompok)** | 1. **Bagas Afrizal** (NIM: 231011400204)<br>2. **Abdul Hafizh Ar Rasyid** (NIM: 231011403352)<br>3. **Aditya Eka Purnama** (NIM: 231011400988)<br>4. **Syaifa Maulana** (NIM: 231011401802) |
 | **Mata Kuliah** | Testing & Quality Assurance (QA) - Semester 7 |
 | **Program Studi / Kampus** | Teknik Informatika / Universitas Pamulang |
-| **Versi Dokumen** | 1.0.0 |
+| **Versi Dokumen** | 2.0.0 |
 | **Tanggal Terbit** | November 2026 |
 | **Standar Acuan** | ISO/IEC/IEEE 29119-3:2021 *(Test Documentation)* & ISO/IEC 25010:2023 *(Product Quality Model)* |
 
@@ -21,84 +21,76 @@
 ## 1. Pendahuluan (Introduction)
 
 ### 1.1 Latar Belakang & Deskripsi Sistem
-Keke Craft merupakan unit Usaha Mikro, Kecil, dan Menengah (UMKM) kriya unggulan di Tangerang yang berfokus pada produksi kerajinan ramah lingkungan berbahan anyaman pandan dipadukan dengan tenun Nusantara, batik, dan kulit asli. Untuk memperluas jangkauan pasar, Keke Craft mengoperasikan portal resmi [galerikeke.com](https://www.galerikeke.com/) sebagai media katalog digital, informasi profil usaha, dan kanal interaksi pemesanan konsumen.
+**Galeri.art** merupakan platform digital marketplace dan kurasi karya seni serta produk kerajinan tangan (*artisan craft*) lokal asli Indonesia. Platform ini mewadahi berbagai kreator, seniman, dan UMKM kriya dari seluruh penjuru Indonesia untuk memamerkan dan memperdagangkan karya mereka.
 
-Sebagai sistem *medium ke bawah* yang digunakan langsung oleh publik dan calon pembeli, kualitas antarmuka, fungsionalitas navigasi, serta ketahanan sistem menjadi faktor krusial. Oleh karena itu, pengujian penjaminan mutu (*Quality Assurance*) berbasis standar internasional diperlukan guna mengevaluasi keandalan situs secara menyeluruh.
+Dibangun dengan teknologi web modern berbasis **Next.js** dan sistem autentikasi terpadu **Auth.js / NextAuth**, platform ini menyajikan fitur interaktif yang meliputi:
+* **Autentikasi Pengguna:** Halaman Masuk (*Login* `/login`) dan Pendaftaran (*Register* `/register`) menggunakan *passwordless magic link / OTP email* serta integrasi *OAuth*.
+* **Koleksi Karya (*Artworks* `/artworks`):** Fitur katalog produk seni, filter kategori, filter rentang harga (minimum-maksimum), status ketersediaan (*ready stock / pre-order*), serta pencarian kata kunci.
+* **Direktori Seniman (*Artists* `/artists`):** Halaman profil para pembuat karya kriya dan cerita di balik karya mereka.
+* **Kanal Transaksi & Informasi:** Halaman detail karya, Tentang Galeri (`/about`), Cara Kerja (`/cara-kerja`), dan Panduan (`/panduan`).
+
+Sebagai sistem kategori menengah yang melayani interaksi pengguna aktif dan autentikasi akun, keandalan fungsional, keamanan transmisi data, dan ketahanan terhadap galat masukan menjadi faktor yang sangat krusial. Oleh karena itu, pengujian penjaminan mutu (*Quality Assurance*) berbasis standar internasional **ISO/IEC 25010:2023** dan **ISO/IEC/IEEE 29119** dilaksanakan untuk mengevaluasi kualitas platform secara objektif.
 
 ### 1.2 Tujuan Pengujian (Test Objectives)
-1. Memverifikasi fungsionalitas seluruh fitur utama pada website Keke Craft sesuai spesifikasi kebutuhan pengguna (*Functional Suitability*).
-2. Mengidentifikasi galat (*defect/bug*), tautan rusak (*broken links*), anomali antarmuka, dan validasi input menggunakan metode **Black Box Testing**.
-3. Menilai kualitas portal berdasarkan karakteristik mutu standar **ISO/IEC 25010:2023** (*Functional Suitability, Usability, Performance Efficiency, Compatibility, Security*).
-4. Melaksanakan pengujian secara komprehensif melalui dua pendekatan: **Manual Testing** dan **Automated Testing**.
-5. Mengintegrasikan wawasan praktisi industri melalui wawancara dengan profesional *Quality Assurance* (QA) untuk memvalidasi relevansi hasil pengujian dengan standar industri.
+1. Memverifikasi fungsionalitas fitur autentikasi (login, register, validasi CSRF) pada platform Galeri.art (*Functional Suitability & Security*).
+2. Memverifikasi fungsionalitas penjelajahan katalog karya seni, filter harga, filter kategori, dan pencarian produk (*Functional Completeness & Correctness*).
+3. Mengidentifikasi galat (*defect/bug*), penanganan *error* pada slug tidak ditemukan, serta anomali respons sistem menggunakan metode **Black Box Testing**.
+4. Mengukur kepatuhan terhadap standar mutu **ISO/IEC 25010:2023** (*Functional Suitability, Usability, Performance Efficiency, Compatibility, Reliability, Security*).
+5. Melaksanakan pengujian secara komprehensif melalui dua pendekatan: **Manual Testing** dan **Automated Testing**.
+6. Menghubungkan temuan pengujian dengan wawasan praktisi industri melalui wawancara QA Engineer profesional.
 
 ---
 
 ## 2. Ruang Lingkup Pengujian (Test Scope)
 
 ### 2.1 Item Pengujian (Items to be Tested)
-* **Halaman Beranda (Home - `/`):** Header, navigasi menu utama, hero section, carousel portofolio kriya, deskripsi nilai produk, footer, dan ikon tautan media sosial.
-* **Halaman Produk (Product Catalog - `/product/`):** Tampilan grid produk kriya (Tote Bag, Pouch, Sleeve, dll.), deskripsi dimensi ukuran, gambar produk, dan struktur tata letak katalog.
-* **Halaman Profil (About Us - `/about-us/`):** Teks visi, sejarah UMKM Keke Craft sejak 2021, integrasi elemen grafis, dan responsivitas halaman.
-* **Fungsi Interaksi & Komunikasi (CTA Buttons):**
-  - Tombol WhatsApp Direct Chat (`https://wa.me/6281386058147`).
-  - Tautan Instagram resmi (`https://www.instagram.com/kekecraft_`).
-  - Tautan Facebook resmi (`https://www.facebook.com/share/18mBgD3fpP/`).
-* **Fitur Pencarian Sistem (Global Search - `/?s={query}`):**
-  - Pencarian kata kunci valid (misal: "tas", "pandan").
-  - Pencarian kata kunci invalid / tidak ditemukan.
-  - Penanganan masukan kosong (*empty query*) dan karakter khusus (*special characters / XSS payload basic*).
-* **Performa & Kompatibilitas:** Waktu muat halaman (*load time*), TTFB (*Time to First Byte*), HTTP Response Code, dan tampilan responsif (Desktop, Tablet, Mobile).
+* **Modul Autentikasi Pengguna (Authentication Module):**
+  - Halaman Masuk / Login (`https://galeri.art/login`): Form masukan email, validasi format email, tombol "Kirim kode masuk", dan proteksi token CSRF.
+  - Halaman Pendaftaran / Register (`https://galeri.art/register`): Form masukan Nama, Email, tombol "Buat Akun", dan tautan navigasi ke halaman login.
+  - Endpoint Keamanan Auth (`/api/auth/csrf` & `/api/auth/callback/credentials`): Verifikasi pembangkitan token CSRF dan penolakan permintaan tanpa token (*Missing CSRF error*).
+* **Modul Katalog Karya Seni (Artworks Module - `/artworks`):**
+  - Tampilan grid produk seni/kriya (gambar, nama karya, nama artisan, harga).
+  - Kontrol filter rentang harga (input `minPrice` dan `maxPrice`).
+  - Kontrol filter kategori (`categoryId`) dan filter status ketersediaan.
+  - Fitur pencarian ("Cari di galeri").
+* **Modul Direktori Seniman (Artists Directory - `/artists`):**
+  - Daftar kartu profil artisan, tautan profil seniman, dan bio singkat.
+* **Modul Halaman Informasi & Navigasi Utama:**
+  - Header, logo Galeri, navigasi beranda (`/`), Tentang Galeri (`/about`), Panduan (`/panduan`), dan Kebijakan Privasi (`/privacy-policy`).
+* **Pengujian Robustness & Error Handling:**
+  - Respon sistem terhadap slug karya seni atau seniman yang tidak terdaftar (misal `/artworks/slug-tidak-ditemukan-xyz`).
+  - Sanitasi karakter script / HTML injection (`<script>alert('xss')</script>`).
+* **Performa & Kompatibilitas:**
+  - Kecepatan pemuatan halaman katalog (TTFB & Load duration $< 3.5\text{ detik}$).
+  - Responsivitas tampilan pada resolusi layar *smartphone* (375px - 414px) dan *desktop*.
 
 ### 2.2 Item yang Tidak Diuji (Out of Scope)
-* Kode sumber backend (*source code internal server-side PHP/LiteSpeed*) dan basis data internal MySQL pengelola (karena hak akses terbatas dan pengujian berfokus pada metode Black Box).
-* Sistem pembayaran payment gateway otomatis (website Keke Craft saat ini menggunakan skema katalog dan pemesanan direct chat WhatsApp, bukan automated checkout cart).
-* Uji penetrasi mendalam (*deep black-hat penetration testing*) yang berpotensi menyebabkan *Denial of Service* (DoS) pada server UMKM.
+* Kode sumber backend (*Next.js server-side / Node.js runtime*) dan basis data internal produksi pengelola.
+* Proses penerimaan kode OTP email di kotak masuk pengguna nyata (karena pengujian berfokus pada validasi antarmuka dan respon API tanpa melakukan spam email massal).
+* Uji penetrasi beban ekstrem (*DDoS / Stress Testing*) yang berisiko mengganggu operasional live server Galeri.art.
 
 ---
 
 ## 3. Strategi Pengujian (Test Strategy)
 
 ### 3.1 Pendekatan Metode: Black Box Testing
-Metode pengujian yang dipilih secara eksklusif adalah **Black Box Testing**. Pengujian dilakukan dari perspektif pengguna akhir (*end-user*) tanpa memerlukan pengetahuan atau akses terhadap struktur logika internal program.
-
-Teknik Black Box yang diimplementasikan:
-1. **Equivalence Partitioning (EP):** Mengelompokkan domain masukan (input) ke dalam partisi kelas valid dan invalid untuk menguji respon fungsi pencarian dan parameter URL.
-2. **Boundary Value Analysis (BVA):** Menguji nilai batas panjang karakter masukan kata kunci pencarian (panjang minimum, normal, dan ekstrem).
-3. **End-to-End Scenario Testing:** Menguji alur pengguna dari mulai menemukan produk di katalog hingga menekan tombol pemesanan melalui WhatsApp.
+Pengujian dilakukan secara murni menggunakan metode **Black Box Testing** dari perspektif pengguna luar (*end-user*):
+1. **Equivalence Partitioning (EP):**
+   - Masukan email valid (`user@example.com`) vs masukan email invalid (`invalid-email-format`).
+   - Masukan kategori valid (`?categoryId=...`) vs kategori acak.
+2. **Boundary Value Analysis (BVA):**
+   - Nilai batas panjang teks masukan pencarian (panjang 0 karakter hingga 250 karakter).
+   - Nilai batas rentang harga minimum (0) dan maksimum.
+3. **Fault Injection & Error Guessing:**
+   - Permintaan otentikasi tanpa menyertakan CSRF token.
+   - Akses URL slug dinamis yang tidak ada di basis data.
 
 ### 3.2 Pendekatan Eksekusi: Manual & Otomatis
-| Aspek | Pengujian Manual (Manual Testing) | Pengujian Otomatis (Automated Testing) |
-| :--- | :--- | :--- |
-| **Fokus** | Eksplorasi UX, layout visual antarmuka, verifikasi pesan teks, dan navigasi lintas halaman. | Regresi fungsionalitas, status HTTP, verifikasi keberadaan elemen DOM, dan pengujian parameter pencarian. |
-| **Alat Bantu (Tools)** | Web Browser (Google Chrome, Firefox, Safari), DevTools Network, Lighthouse Audit. | Automated Test Runner (Node.js Test Framework / Playwright / Script Test Runner). |
-| **Artefak** | Tabel Test Matrix, Lembar Test Case, Bukti Tangkapan Layar (*Defect Screenshot*). | Test Script (`*.test.js`), Log Eksekusi Konsol, Laporan Pengujian Otomatis JSON/HTML. |
+* **Manual Testing:** Eksplorasi interaksi UI, pengujian responsivitas tata letak, pengujian formulir login/register, dan observasi penanganan galat.
+* **Automated Testing:** Eksekusi skrip test runner berbasis Node.js (`tests/run_blackbox_tests.js`) yang menguji 12 parameter fungsional, status HTTP, token CSRF, proteksi form callback, sanitasi XSS, dan durasi muat dokumen.
 
 ---
 
-## 4. Kriteria Kelayakan (Criteria for Pass/Fail)
-
-### 4.1 Kriteria Lolos Pengujian (Pass Criteria)
-1. Fitur utama (navigasi, visualisasi katalog, dan tombol kontak WhatsApp) berfungsi sesuai skenario tanpa galat fatal (*fatal error / broken link 404/500*).
-2. Status respon HTTP untuk seluruh halaman utama adalah `200 OK`.
-3. Tautan eksternal (WhatsApp, Instagram, Facebook) membuka tujuan URL yang valid dan tepat.
-4. Fitur pencarian menampilkan hasil yang relevan untuk input valid dan pesan ramah pengguna ketika data tidak ditemukan.
-5. Nilai kepatuhan mutu ISO/IEC 25010:2023 pada aspek *Functional Suitability* minimal 85%.
-
-### 4.2 Kriteria Penghentian Sementara & Dimulai Kembali (Suspension & Resumption)
-* **Suspensi:** Pengujian ditangguhkan apabila server target mengalami *downtime* (*HTTP 502/503/504*) atau koneksi internet penguji terputus.
-* **Resumsi:** Pengujian dilanjutkan kembali setelah situs kembali dapat diakses normal (*HTTP 200*).
-
----
-
-## 5. Sumber Daya & Lingkungan Pengujian (Test Environment)
-
-### 5.1 Perangkat Keras (Hardware)
-* Komputer Penguji: Mac / PC (Processor Multi-Core, RAM ≥ 8 GB, Resolusi Layar 1920x1080 & Retina Display).
-* Perangkat Mobile (Pengujian Responsif): Layar Emulasi Smartphone (375x667 hingga 414x896 piksel).
-
-### 5.2 Perangkat Lunak (Software)
-* Sistem Operasi: macOS Sonoma / Linux / Windows 11.
-* Web Browser: Google Chrome (versi terbaru), Mozilla Firefox, Apple Safari.
-* Node.js Engine (v18+) untuk skrip automasi pengujian.
-* Version Control System: Git & GitHub Repository.
+## 4. Kriteria Kelayakan (Pass / Fail Criteria)
+* **Pass:** Fitur login, register, katalog, filter, dan navigasi beroperasi dengan status kode HTTP 200, proteksi CSRF bekerja, dan waktu respons $< 3.5\text{ detik}$.
+* **Fail:** Terjadi galat fatal *Internal Server Error (HTTP 500)* pada alur normal, atau formulir otentikasi tidak memvalidasi masukan secara semestinya.

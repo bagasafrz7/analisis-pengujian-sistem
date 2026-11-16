@@ -1,4 +1,4 @@
-# Analisis Pengujian Kualitas dan Fungsionalitas Website Keke Craft Menggunakan Metode Black Box Testing Berdasarkan Standar ISO/IEC 25010:2023
+# Analisis Pengujian Kualitas dan Fungsionalitas Platform Galeri.art Menggunakan Metode Black Box Testing Berdasarkan Standar ISO/IEC 25010:2023
 
 [![QA Black Box Tests](https://github.com/bagasafrz7/analisis-pengujian-sistem/actions/workflows/qa-tests.yml/badge.svg)](https://github.com/bagasafrz7/analisis-pengujian-sistem/actions)
 ![Standard ISO 25010:2023](https://img.shields.io/badge/Standard-ISO%2FIEC%2025010%3A2023-blue)
@@ -16,9 +16,10 @@ Proyek tugas mata kuliah **Testing & Quality Assurance (QA)** — Semester 7, Pr
 | :--- | :--- |
 | **Mata Kuliah** | Testing & Quality Assurance (QA) |
 | **Semester** | 7 (Tujuh) |
-| **Objek Penelitian** | Keke Craft \| Tas Anyaman Pandan Tangerang |
-| **URL Website** | [https://www.galerikeke.com/](https://www.galerikeke.com/) |
-| **Kategori Sistem** | Portal Web UMKM / E-Commerce Katalog Produk Kriya (Skala Menengah ke Bawah) |
+| **Objek Penelitian** | **Galeri** — Rumah bagi Seni, Kriya, dan Cerita Nusantara |
+| **URL Website** | [https://galeri.art/](https://galeri.art/) |
+| **Kategori Sistem** | Platform E-Commerce & Kurasi Karya Seni UMKM (Skala Menengah / Web Modern) |
+| **Fitur Kunci** | Autentikasi Pengguna (Login/Register Passwordless & Google OAuth), Kurasi Karya Seni (`/artworks`), Direktori Seniman (`/artists`), Pencarian & Filter Harga/Kategori |
 | **Metode Pengujian** | **Black Box Testing** (Manual & Automated Testing) |
 | **Teknik Pengujian** | *Equivalence Partitioning*, *Boundary Value Analysis*, dan *End-to-End Scenario Testing* |
 | **Standar Acuan QA** | **ISO/IEC 25010:2023** (*Product Quality Model*) & **ISO/IEC/IEEE 29119** (*Software Testing*) |
@@ -36,11 +37,11 @@ Proyek tugas mata kuliah **Testing & Quality Assurance (QA)** — Semester 7, Pr
 
 ---
 
-## 🎯 Objek Penelitian: Keke Craft
+## 🎯 Objek Penelitian: Galeri (galeri.art)
 
-**Keke Craft** merupakan salah satu unit usaha mikro, kecil, dan menengah (UMKM) kriya unggulan di Tangerang yang memproduksi kerajinan anyaman pandan (tas, souvenir, perlengkapan fesyen dan dekorasi). Portal web resminya ([galerikeke.com](https://www.galerikeke.com/)) berfungsi sebagai etalase digital, penyedia informasi katalog produk kriya, profil usaha, serta kanal kontak dan konversi pemesanan pelanggan.
+**Galeri.art** merupakan platform digital e-commerce dan kurasi karya seni serta kerajinan tangan (*artisan craft*) lokal asli Indonesia. Platform ini menghubungkan langsung para seniman, pengrajin, dan kreator kriya dari berbagai pelosok Nusantara dengan apresiator seni dan konsumen umum.
 
-Karakteristik portal ini sangat ideal sebagai studi kasus pengujian perangkat lunak skala menengah ke bawah (*medium-to-low scale*) untuk mengukur keandalan fungsional, performa, dan pengalaman pengguna (*user experience*) bagi konsumen UMKM.
+Dibangun dengan arsitektur web modern (**Next.js**, **Auth.js / NextAuth**, **Material UI / Emotion**, dan **Nginx reverse proxy**), platform ini menyediakan fitur komprehensif mulai dari **sistem autentikasi pengguna (Login & Registrasi)**, penjelajahan katalog karya (*Artworks*), filter rentang harga dan kategori, hingga direktori profil seniman (*Artists*). Karakteristik sistem ini sangat ideal untuk studi kasus pengujian perangkat lunak kategori menengah (*medium-scale web application*) berbasis penjaminan mutu internasional.
 
 ---
 
@@ -48,10 +49,10 @@ Karakteristik portal ini sangat ideal sebagai studi kasus pengujian perangkat lu
 
 Berdasarkan analisis kebutuhan pengujian perangkat lunak:
 1. **Objek Pengujian Berupa Sistem Produksi (Live System):** Website diuji langsung dari antarmuka pengguna tanpa akses kode sumber (*source code*) internal maupun basis data backend pengelola.
-2. **Relevansi Fungsional:** Menguji kesesuaian masukan (*input*) dan keluaran (*output*) pada fitur utama (navigasi katalog, tautan produk, form kontak/inquiry, responsivitas antarmuka).
+2. **Pengujian Fitur Autentikasi & Transaksi:** Memverifikasi fungsionalitas formulir masuk (*login*), pendaftaran akun (*registration*), proteksi token CSRF, validasi format email, pencarian katalog, dan filter rentang harga.
 3. **Kombinasi Pengujian:**
    - **Manual Testing:** Perancangan Test Matrix, Test Scenario, dan Test Case untuk verifikasi alur pengguna secara manual.
-   - **Automated Testing:** Implementasi skrip automasi pengujian (E2E testing) untuk memverifikasi fungsionalitas tombol, halaman, dan form input secara berulang dan reliabel.
+   - **Automated Testing:** Implementasi skrip automasi pengujian (E2E testing) berbasis Node.js untuk memverifikasi fungsionalitas tombol, halaman, proteksi CSRF, dan stabilitas server secara berulang.
 
 ---
 
@@ -73,7 +74,7 @@ Penggunaan metode *Black Box Testing* dan evaluasi mutu perangkat lunak mengacu 
 3. **DECODE: Jurnal Pendidikan Teknologi Informasi — Terakreditasi SINTA 2**
    * *Topik:* Evaluasi kualitas dan validasi fungsional sistem informasi web menggunakan *Black Box Testing*.
 4. **JURIKOM (Jurnal Riset Komputer) / MIB — Terakreditasi SINTA 3**
-   * *Topik:* Implementasi pengujian *Black Box* (*Boundary Value Analysis*) pada sistem berbasis web skala UMKM dan pelayanan publik.
+   * *Topik:* Implementasi pengujian *Black Box* (*Boundary Value Analysis*) pada sistem berbasis web UMKM dan layanan publik.
 
 ---
 
@@ -86,8 +87,8 @@ Penggunaan metode *Black Box Testing* dan evaluasi mutu perangkat lunak mengacu 
 - [04_PEDOMAN_WAWANCARA_QA.md](docs/04_PEDOMAN_WAWANCARA_QA.md) — Panduan, instrumen 10 pertanyaan, kriteria narasumber, dan template wawancara praktisi QA profesional.
 
 ### 2. Laporan Hasil Eksekusi & Wawancara (Folder `reports/`)
-- [MANUAL_TEST_EXECUTION_REPORT.md](reports/MANUAL_TEST_EXECUTION_REPORT.md) — Laporan Hasil Eksekusi Pengujian Manual (15 Test Cases, Pass Rate 93.33%, dan Log Defect `DEF-001`).
-- [AUTOMATED_TEST_REPORT.md](reports/AUTOMATED_TEST_REPORT.md) — Laporan Hasil Pengujian Otomatis (12 Test Cases, Pass Rate 100%, rata-rata durasi 1.2 detik).
+- [MANUAL_TEST_EXECUTION_REPORT.md](reports/MANUAL_TEST_EXECUTION_REPORT.md) — Laporan Hasil Eksekusi Pengujian Manual (15 Test Cases, Pass Rate 93.33%, dan Log Defect `DEF-001` HTTP 500 on Not Found Slug).
+- [AUTOMATED_TEST_REPORT.md](reports/AUTOMATED_TEST_REPORT.md) — Laporan Hasil Pengujian Otomatis (12 Test Cases, Pass Rate 100%, rata-rata durasi respons < 300 ms).
 - [automated_test_results.json](reports/automated_test_results.json) — Data mentah (*raw data*) eksekusi automasi dalam format JSON.
 - [WAWANCARA_QA_PROFESIONAL.md](reports/WAWANCARA_QA_PROFESIONAL.md) — Transkrip lengkap dan sintesis wawancara bersama Senior QA Engineer industri teknologi.
 
@@ -113,16 +114,15 @@ Hasil pengujian otomatis akan langsung dicetak pada terminal dan disimpan ke ber
 
 ## 🗺️ Roadmap Tahapan Pengerjaan
 
-- [x] **Tahap 1: Penetapan Judul & Objek Penelitian** *(Commit #1)*
-- [x] **Tahap 2: Penyusunan Dokumentasi QA (ISO Standard Testing)** *(Commit #2)*
+- [x] **Tahap 1: Penetapan Judul & Penyesuaian Objek Penelitian (Galeri.art)**
+- [x] **Tahap 2: Penyusunan Dokumentasi QA (ISO Standard Testing)**
   - Test Plan & Test Strategy (ISO/IEC/IEEE 29119)
   - Identifikasi Karakteristik Mutu (ISO/IEC 25010:2023)
-  - Penyusunan Test Scenarios & Test Cases
+  - Penyusunan Test Scenarios & Test Cases (termasuk Modul Login/Register)
   - Penyusunan Panduan Wawancara Praktisi QA
-- [x] **Tahap 3: Eksekusi Pengujian Sistem (Manual & Otomatis)** *(Commit #3)*
+- [x] **Tahap 3: Eksekusi Pengujian Sistem (Manual & Otomatis)**
   - Pengujian Manual (*15 Test Cases & Defect Reporting DEF-001*)
   - Pengujian Otomatis (*12 Test Cases dengan Node.js Runner*)
-- [x] **Tahap 4: Wawancara Praktisi QA Profesional** *(Commit #3)*
+- [x] **Tahap 4: Wawancara Praktisi QA Profesional**
   - Transkrip & sintesis industri QA
-- [x] **Tahap 5: Finalisasi Repositori & Petunjuk Publikasi GitHub** *(Commit #3)*
-
+- [x] **Tahap 5: Finalisasi Repositori, CI/CD Pipeline & GitHub**
