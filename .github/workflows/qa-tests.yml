@@ -34,3 +34,4 @@ jobs:
         with:
           name: automated-qa-results
           path: reports/automated_test_results.json
+
