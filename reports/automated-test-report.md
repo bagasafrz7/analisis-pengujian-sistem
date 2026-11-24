@@ -8,9 +8,9 @@
 ## 1. Ringkasan Eksekusi Otomatis
 
 * **Waktu Eksekusi:** November 2026
-* **Test Runner:** `tests/run_blackbox_tests.js` (Node.js Native Fetch & Performance API)
+* **Test Runner:** `tests/run-blackbox-tests.js` (Node.js Native Fetch & Performance API)
 * **Status Keseluruhan:** **100% PASSED** (12 dari 12 Kasus Uji Otomatis Berhasil)
-* **File Hasil Raw JSON:** `reports/automated_test_results.json`
+* **File Hasil Raw JSON:** `reports/automated-test-results.json`
 
 | Indikator | Nilai |
 | :--- | :--- |

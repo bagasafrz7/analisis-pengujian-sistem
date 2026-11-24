@@ -54,7 +54,7 @@
 ### 🖥️ Slide 5: Pelaksanaan Pengujian: Manual vs Otomatis
 * **Pengujian Manual (15 Test Cases):** Menguji alur login email, registrasi akun, kontrol filter harga, direktori artis, dan penanganan galat.
   - *Hasil:* 14 Passed, 1 Failed (**Pass Rate 93.33%**).
-* **Pengujian Otomatis (12 Test Cases):** Menggunakan script runner Node.js (`tests/run_blackbox_tests.js`) untuk memvalidasi status kode HTTP, ketersediaan form login/register, token CSRF, sanitasi XSS, dan durasi muat dokumen.
+* **Pengujian Otomatis (12 Test Cases):** Menggunakan script runner Node.js (`tests/run-blackbox-tests.js`) untuk memvalidasi status kode HTTP, ketersediaan form login/register, token CSRF, sanitasi XSS, dan durasi muat dokumen.
   - *Hasil:* 12/12 Passed (**Pass Rate 100%**). Rata-rata respons: **245 ms** (Jauh di bawah batas ISO: $< 3.5\text{ detik}$).
 * **CI/CD Pipeline:** Terintegrasi dengan **GitHub Actions** untuk pengujian berkala otomatis.
 > **Speaking Notes:** *"Pengujian otomatis membuktikan kecepatan respon server Galeri.art yang sangat impresif, rata-rata hanya 245 milidetik, serta sistem keamanan CSRF yang aktif mencegah permintaan liar."*

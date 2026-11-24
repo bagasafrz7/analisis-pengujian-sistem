@@ -1,5 +1,5 @@
 {
-  "executedAt": "2026-11-16T09:36:01.683Z",
+  "executedAt": "2026-11-24T07:16:43.020Z",
   "targetUrl": "https://galeri.art",
   "totalTests": 12,
   "passed": 12,
@@ -11,7 +11,7 @@
       "name": "Homepage Availability & Navigation Elements",
       "category": "Functional Suitability",
       "status": "PASS",
-      "durationMs": 914,
+      "durationMs": 768,
       "details": "Beranda merespons status 200 OK dengan elemen navigasi utama (/artworks, /artists).",
       "expected": "Status 200 & Navigation elements exist",
       "actual": "Status 200"
@@ -21,7 +21,7 @@
       "name": "Login Page Availability & Input Field",
       "category": "Functional Suitability (Authentication)",
       "status": "PASS",
-      "durationMs": 67,
+      "durationMs": 83,
       "details": "Halaman Login aktif dengan form email passwordless dan tombol \"Kirim kode masuk\".",
       "expected": "Status 200 & Form Email Login ready",
       "actual": "Status 200"
@@ -31,7 +31,7 @@
       "name": "Register Page Form & Fields Verification",
       "category": "Functional Suitability (Authentication)",
       "status": "PASS",
-      "durationMs": 57,
+      "durationMs": 99,
       "details": "Halaman Register memuat kolom Nama, Email, dan tombol aksi \"Buat Akun\".",
       "expected": "Status 200 & Form Registrasi Lengkap",
       "actual": "Status 200"
@@ -41,7 +41,7 @@
       "name": "Authentication CSRF Token Generator",
       "category": "Security (Integrity & Protection)",
       "status": "PASS",
-      "durationMs": 35,
+      "durationMs": 83,
       "details": "Endpoint CSRF Auth.js aktif dan menghasilkan token kriptografis unik.",
       "expected": "Status 200 & Valid csrfToken",
       "actual": "Token length: 64"
@@ -51,7 +51,7 @@
       "name": "Missing CSRF Protection on Login Callback",
       "category": "Security (Robustness)",
       "status": "PASS",
-      "durationMs": 32,
+      "durationMs": 45,
       "details": "Permintaan login tanpa CSRF token dicegat dan dialihkan ke error=MissingCSRF.",
       "expected": "Redirect 302/303 dengan error=MissingCSRF",
       "actual": "Location: https://galeri.art/login?error=MissingCSRF"
@@ -61,7 +61,7 @@
       "name": "Artworks Catalog & Filter Form Verification",
       "category": "Functional Suitability",
       "status": "PASS",
-      "durationMs": 554,
+      "durationMs": 227,
       "details": "Katalog karya aktif dengan kontrol filter pencarian dan rentang harga.",
       "expected": "Status 200 & Filter Komponen Aktif",
       "actual": "Status 200"
@@ -71,7 +71,7 @@
       "name": "Artists Directory & Profiles Verification",
       "category": "Functional Suitability",
       "status": "PASS",
-      "durationMs": 121,
+      "durationMs": 117,
       "details": "Direktori seniman & artisan nusantara merespons dengan daftar profil.",
       "expected": "Status 200 & Profil Seniman Aktif",
       "actual": "Status 200"
@@ -81,7 +81,7 @@
       "name": "Category Query Parameter Verification (EP Valid)",
       "category": "Functional Correctness",
       "status": "PASS",
-      "durationMs": 231,
+      "durationMs": 211,
       "details": "Permintaan filter kategori berhasil direspon HTTP 200 OK.",
       "expected": "Status 200 OK untuk categoryId valid",
       "actual": "Status 200"
@@ -91,7 +91,7 @@
       "name": "Max Length Query String (BVA Max Boundary)",
       "category": "Reliability & Robustness",
       "status": "PASS",
-      "durationMs": 160,
+      "durationMs": 166,
       "details": "Permintaan query panjang batas ekstrem (250 karakter) ditangani secara stabil (HTTP 200).",
       "expected": "Status 200 OK",
       "actual": "Status 200"
@@ -101,7 +101,7 @@
       "name": "Input Sanitization against XSS Injection",
       "category": "Security (Integrity)",
       "status": "PASS",
-      "durationMs": 227,
+      "durationMs": 169,
       "details": "Tag script dinetralisasi / di-escape secara aman dan tidak dieksekusi mentah pada DOM.",
       "expected": "Tag script di-escape secara aman",
       "actual": "Aman (HTML Escaped / React Sanitized)"
@@ -111,7 +111,7 @@
       "name": "HTTPS Protocol & Transport Encryption",
       "category": "Security (Confidentiality)",
       "status": "PASS",
-      "durationMs": 355,
+      "durationMs": 166,
       "details": "Protokol HTTPS aktif dan terenkripsi menggunakan sertifikat TLS modern.",
       "expected": "HTTPS Active",
       "actual": "HTTPS 200 OK"
@@ -121,10 +121,10 @@
       "name": "Catalog Page Load Performance (< 3.5s)",
       "category": "Performance Efficiency",
       "status": "PASS",
-      "durationMs": 168,
-      "details": "Waktu respon pemuatan halaman katalog karya adalah 168ms (di bawah batas 3500ms).",
+      "durationMs": 177,
+      "details": "Waktu respon pemuatan halaman katalog karya adalah 177ms (di bawah batas 3500ms).",
       "expected": "Load duration < 3500ms",
-      "actual": "168ms"
+      "actual": "177ms"
     }
   ]
 }

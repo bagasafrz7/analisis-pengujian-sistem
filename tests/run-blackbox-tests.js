@@ -361,8 +361,8 @@ async function runTests() {
   };
 
   const fs = await import('fs');
-  fs.writeFileSync('reports/automated_test_results.json', JSON.stringify(summary, null, 2));
-  console.log('Saved test results to reports/automated_test_results.json');
+  fs.writeFileSync('reports/automated-test-results.json', JSON.stringify(summary, null, 2));
+  console.log('Saved test results to reports/automated-test-results.json');
 }
 
 runTests().catch(console.error);

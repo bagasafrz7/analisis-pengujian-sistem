@@ -26,12 +26,12 @@ jobs:
 
       - name: Execute Automated Black Box Test Suite
         run: |
-          node tests/run_blackbox_tests.js
+          node tests/run-blackbox-tests.js
 
       - name: Archive Test Results Artifact
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: automated-qa-results
-          path: reports/automated_test_results.json
+          path: reports/automated-test-results.json
 

@@ -62,10 +62,10 @@ W6 (13-19 Des): [          ] Persiapan Demo, Review Presentasi & UAS (19 Des)
   1. Peninjauan ulang objek penelitian: beralih ke **Galeri.art** ([https://galeri.art/](https://galeri.art/)) karena memiliki sistem autentikasi pengguna (*Login email passwordless & Register*).
   2. Eksplorasi fitur platform Galeri.art (Next.js, Auth.js, Katalog Karya Seni, Direktori Seniman, Filter Harga).
   3. Penyusunan dokumen formal pengujian sesuai standar:
-     - `01_TEST_PLAN_ISO_29119.md` (*Test Plan & Strategy*).
-     - `02_METRIK_KUALITAS_ISO_25010_2023.md` (Metrik 5 karakteristik mutu ISO 25010).
-     - `03_TEST_CASES_BLACK_BOX.md` (Perancangan kasus uji login, register, katalog, dan CSRF).
-     - `04_PEDOMAN_WAWANCARA_QA.md` (Instrumen 10 pertanyaan wawancara praktisi QA).
+     - `01-test-plan-iso-29119.md` (*Test Plan & Strategy*).
+     - `02-metrik-kualitas-iso-25010-2023.md` (Metrik 5 karakteristik mutu ISO 25010).
+     - `03-test-cases-black-box.md` (Perancangan kasus uji login, register, katalog, dan CSRF).
+     - `04-pedoman-wawancara-qa.md` (Instrumen 10 pertanyaan wawancara praktisi QA).
 * **Penanggung Jawab:** Seluruh Anggota Kelompok (Bagas, Hafizh, Aditya, Syaifa).
 * **Luaran (Deliverables):**
   - Berkas dokumentasi pengujian lengkap di folder `docs/`.
@@ -82,7 +82,7 @@ W6 (13-19 Des): [          ] Persiapan Demo, Review Presentasi & UAS (19 Des)
      - Pengujian kontrol filter harga dan kategori karya seni.
      - Pencatatan log defect nyata `DEF-001` (*HTTP 500 pada akses slug tidak ditemukan*).
   2. **Pengujian Otomatis (Automated Testing):**
-     - Eksekusi skrip test runner Node.js (`tests/run_blackbox_tests.js`).
+     - Eksekusi skrip test runner Node.js (`tests/run-blackbox-tests.js`).
      - Pengujian endpoint token CSRF (`/api/auth/csrf`) dan pencegatan callback liar (*Missing CSRF*).
      - Pengujian uji batas string ekstrem 250 karakter (*Boundary Value Analysis*).
      - Pengukuran performa respons server (TTFB dan *Load Duration*).
@@ -90,8 +90,8 @@ W6 (13-19 Des): [          ] Persiapan Demo, Review Presentasi & UAS (19 Des)
   - Manual Test: **Abdul Hafizh Ar Rasyid** & **Syaifa Maulana**
   - Automation Test: **Bagas Afrizal** & **Aditya Eka Purnama**
 * **Luaran (Deliverables):**
-  - Berkas laporan `MANUAL_TEST_EXECUTION_REPORT.md` (15 Test Cases, Pass Rate 93.33%).
-  - Berkas laporan `AUTOMATED_TEST_REPORT.md` & `automated_test_results.json` (12 Test Cases, Pass Rate 100%).
+  - Berkas laporan `reports/manual-test-execution-report.md` (15 Test Cases, Pass Rate 93.33%).
+  - Berkas laporan `reports/automated-test-report.md` & `reports/automated-test-results.json` (12 Test Cases, Pass Rate 100%).
   - Laporan detail temuan bug `DEF-001`.
 
 ---
@@ -108,7 +108,7 @@ W6 (13-19 Des): [          ] Persiapan Demo, Review Presentasi & UAS (19 Des)
   - Wawancara & Transkrip: **Syaifa Maulana** & **Bagas Afrizal**
   - Analisis Pembahasan Bab IV: **Aditya Eka Purnama** & **Abdul Hafizh Ar Rasyid**
 * **Luaran (Deliverables):**
-  - Berkas `WAWANCARA_QA_PROFESIONAL.md` (Transkrip lengkap + bukti dokumentasi).
+  - Berkas `reports/wawancara-qa-profesional.md` (Transkrip lengkap + bukti dokumentasi).
   - Draft Bab IV Laporan Akhir.
 
 ---
@@ -127,7 +127,7 @@ W6 (13-19 Des): [          ] Persiapan Demo, Review Presentasi & UAS (19 Des)
   2. Pemeriksaan kelengkapan identitas seluruh anggota kelompok (Nama & NIM).
   3. Review tata bahasa, kerapian tabel, dan penomoran referensi.
   4. Penyusunan berkas dashboard visual (`reports/dashboard.html`) dan ringkasan eksekutif.
-  5. Konversi naskah `LAPORAN_LENGKAP_PENGUJIAN_SISTEM.md` ke format dokumen akhir siap cetak / siap kumpul (`.docx` / `.pdf`).
+  5. Konversi naskah `laporan-lengkap-pengujian-sistem.md` ke format dokumen akhir siap cetak / siap kumpul (`.docx` / `.pdf`).
 * **Penanggung Jawab:** Seluruh Anggota Kelompok (Review Bersama).
 * **Luaran (Deliverables):**
   - **Laporan Akhir Lengkap (Versi Final 100% Selesai)** dalam format Markdown, DOCX, dan PDF.
@@ -139,8 +139,8 @@ W6 (13-19 Des): [          ] Persiapan Demo, Review Presentasi & UAS (19 Des)
 * **Status:** `FINAL EVENT`
 * **Hari Pelaksanaan UAS:** **Sabtu, 19 Desember 2026**
 * **Aktivitas:**
-  1. Latihan simulasi presentasi kelompok menggunakan panduan `PRESENTASI_PENGUJIAN_SISTEM.md` (estimasi waktu 10-15 menit).
-  2. Persiapan demonstrasi live skrip pengujian otomatis di terminal (`node tests/run_blackbox_tests.js`).
+  1. Latihan simulasi presentasi kelompok menggunakan panduan `presentasi-pengujian-sistem.md` (estimasi waktu 10-15 menit).
+  2. Persiapan demonstrasi live skrip pengujian otomatis di terminal (`node tests/run-blackbox-tests.js`).
   3. Persiapan demonstrasi visual dashboard di browser (`reports/dashboard.html`).
   4. Menghadapi sesi tanya-jawab dan evaluasi UAS dari dosen pengampu mata kuliah Testing & QA.
 * **Luaran (Deliverables):**

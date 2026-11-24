@@ -87,7 +87,7 @@ Pengujian dilakukan secara murni menggunakan metode **Black Box Testing** dari p
 
 ### 3.2 Pendekatan Eksekusi: Manual & Otomatis
 * **Manual Testing:** Eksplorasi interaksi UI, pengujian responsivitas tata letak, pengujian formulir login/register, dan observasi penanganan galat.
-* **Automated Testing:** Eksekusi skrip test runner berbasis Node.js (`tests/run_blackbox_tests.js`) yang menguji 12 parameter fungsional, status HTTP, token CSRF, proteksi form callback, sanitasi XSS, dan durasi muat dokumen.
+* **Automated Testing:** Eksekusi skrip test runner berbasis Node.js (`tests/run-blackbox-tests.js`) yang menguji 12 parameter fungsional, status HTTP, token CSRF, proteksi form callback, sanitasi XSS, dan durasi muat dokumen.
 
 ---
 

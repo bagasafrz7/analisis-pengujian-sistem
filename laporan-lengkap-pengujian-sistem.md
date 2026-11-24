@@ -4,7 +4,8 @@
 ---
 
 ### Identitas Laporan Tugas Besar
-* **Mata Kuliah:** Testing & Quality Assurance (QA)
+* **Mata Kuliah:** Testing & Quality Assurance (QA) — 07TPLE004
+* **Dosen Pengampu:** Asep Erlan Maulana, S.Kom., M.Kom.
 * **Program Studi:** Teknik Informatika (Semester 7)
 * **Institusi:** Universitas Pamulang
 * **Tahun Akademik:** 2026/2027
@@ -161,7 +162,7 @@ Pengujian manual dieksekusi terhadap 15 skenario kasus uji yang mencakup modul a
 * **Solusi Perbaikan:** Pada kode penanganan halaman dinamis Next.js (`app/artworks/[slug]/page.tsx`), tambahkan pengecekan jika hasil query database bernilai null, maka segera panggil fungsi `notFound()` dari `next/navigation` agar merender tampilan `not-found.tsx` berstatus kode 404.
 
 ### 4.3 Hasil Eksekusi Pengujian Otomatis (Automated Testing)
-Pengujian otomatis dijalankan melalui skrip Node.js (`tests/run_blackbox_tests.js`) dengan rincian hasil:
+Pengujian otomatis dijalankan melalui skrip Node.js (`tests/run-blackbox-tests.js`) dengan rincian hasil:
 * **Total Uji Otomatis:** 12 Test Cases
 * **Lolos (Pass):** 12 (100%)
 * **Gagal (Fail):** 0 (0%)
