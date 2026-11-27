@@ -155,3 +155,62 @@ node tests/run-blackbox-tests.js
 ```
 
 Hasil pengujian otomatis akan langsung dicetak pada terminal dan disimpan ke berkas `reports/automated-test-results.json`. Untuk melihat visualisasi dashboard, buka berkas `reports/dashboard.html` di peramban web (browser).
+
+---
+
+## 📚 Referensi Jurnal Ilmiah Terakreditasi (SINTA 2 & 3)
+
+Penelitian pengujian sistem Galeri.art berlandaskan metodologi ilmiah yang mengacu pada publikasi jurnal nasional terakreditasi Kemendikbudristek (SINTA):
+
+1. **JUTIF (Jurnal Teknik Informatika) — SINTA 2**
+   * *Judul:* Black Box Testing with the Equivalence Partitioning and Cause Effect Graph Method in Archive Information System
+   * *Penulis:* Suci Ismiati, Firza Prima Aditiawan, Afina Lina Nurlaili (2024, Vol. 5, No. 4, hal. 981–990)
+   * *Penerbit:* Universitas Jenderal Soedirman (Unsoed)
+   * *Tautan Langsung:* [https://doi.org/10.52436/1.jutif.2024.5.4.1944](https://doi.org/10.52436/1.jutif.2024.5.4.1944) | [Portal OJS JUTIF](https://jutif.if.unsoed.ac.id/index.php/jurnal/article/view/1944)
+
+2. **Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi) — SINTA 2**
+   * *Judul:* Correlation Analysis of ISO 25010 Modularity, CK Metrics, and Architecture Smells
+   * *Penulis:* M. Alirridlo, E. A. Tahara, S. Rochimah (2025, Vol. 9, No. 6, hal. 1375–1384)
+   * *Penerbit:* Ikatan Ahli Informatika Indonesia (IAII)
+   * *Tautan Langsung:* [http://jurnal.iaii.or.id/index.php/RESTI](http://jurnal.iaii.or.id/index.php/RESTI) | [Portal Garuda Kemdikbud](https://garuda.kemdikbud.go.id/journal/view/10636)
+
+3. **DECODE (Jurnal Pendidikan Teknologi Informasi) — SINTA 2**
+   * *Judul:* Implementasi Blackbox Testing Pada Sistem Informasi Berbasis Website dengan Teknik Equivalence Partitioning
+   * *Publikasi:* Vol. 5, No. 1 (2025)
+   * *Penerbit:* Universitas Muhammadiyah Kendari
+   * *Tautan Langsung:* [https://journal.umkendari.ac.id/index.php/decode](https://journal.umkendari.ac.id/index.php/decode)
+
+4. **JITET (Jurnal Informatika dan Teknik Elektro Terapan) — SINTA 3**
+   * *Judul:* Penerapan Teknik Boundary Value Analysis dan Equivalence Partitioning pada Pengujian Sistem Informasi Berbasis Web
+   * *Publikasi:* Vol. 11, No. 3
+   * *Penerbit:* Universitas Lampung (Unila)
+   * *Tautan Langsung:* [https://journal.eng.unila.ac.id/index.php/jitet](https://journal.eng.unila.ac.id/index.php/jitet) | [DOI: 10.23960/jitet](https://doi.org/10.23960/jitet)
+
+5. **JURIKOM (Jurnal Riset Komputer) — SINTA 3**
+   * *Judul:* Pengujian Fungsionalitas Website Menggunakan Metode Black Box Testing
+   * *Publikasi:* Vol. 10, No. 2
+   * *Penerbit:* STMIK Budi Darma
+   * *Tautan Langsung:* [https://ejurnal.stmik-budidarma.ac.id/index.php/jurikom](https://ejurnal.stmik-budidarma.ac.id/index.php/jurikom)
+
+---
+
+## 🏛️ Standar Internasional Pengujian & Kualitas Perangkat Lunak
+
+Proyek pengujian ini mengadopsi dua pilar standar internasional resmi dari ISO (*International Organization for Standardization*) dan IEEE (*Institute of Electrical and Electronics Engineers*):
+
+1. **ISO/IEC 25010:2023 — Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model**
+   * *Fungsi:* Standar acuan **Karakteristik & Metrik Mutu Produk** (Apa yang dinilai).
+   * *Tautan Resmi ISO:* [https://www.iso.org/standard/78176.html](https://www.iso.org/standard/78176.html)
+   * *Penerapan di Proyek:* Menjadi tolak ukur evaluasi kualitas sistem Galeri.art yang mencakup *Functional Suitability* (kelengkapan fitur autentikasi & katalog), *Performance Efficiency* (waktu respon server rata-rata 245 ms), *Usability* (kemudahan antarmuka form login OTP), *Reliability* (toleransi masukan salah dan penanganan galat HTTP 500), serta *Security* (validasi HTTPS dan proteksi Anti-CSRF Token).
+
+2. **ISO/IEC/IEEE 29119-1:2022 — Software and systems engineering — Software testing — Part 1: General concepts** (serta **Part 3: Test documentation**)
+   * *Fungsi:* Standar acuan **Proses, Tata Kelola & Struktur Dokumentasi Pengujian** (Bagaimana cara menguji & mendokumentasikan).
+   * *Tautan Resmi ISO:* [https://www.iso.org/standard/81291.html](https://www.iso.org/standard/81291.html)
+   * *Penerapan di Proyek:* Mengatur standarisasi hierarki dokumen QA mulai dari Rencana Pengujian (*Test Plan*), Spesifikasi Skenario Kasus Uji (*Test Case Specification*), Lembar Kerja UAT (*User Acceptance Testing*), Laporan Cacat Sistem (*Defect Report DEF-001*), hingga Laporan Ringkasan Pengujian (*Test Summary Report*).
+
+### 💡 Inti Pemahaman (Summary) ISO 25010 vs ISO/IEEE 29119
+
+| Standar | Peran Utama | Pertanyaan Kunci | Wujud Penerapan di Proyek Kita |
+| :--- | :--- | :--- | :--- |
+| **ISO/IEC 25010:2023** | **Model Kualitas Produk** (*Product Quality*) | *"Seberapa baik, cepat, aman, dan andal website Galeri.art yang kita uji?"* | Penilaian 5 karakteristik mutu, formula skor kelayakan, dan dashboard visual di [02-metrik-kualitas-iso-25010-2023.md](file:///Users/user/Documents/Unpam/Semester%207/TESTING%20%26%20QA/project/analisis-pengujian-sistem/docs/02-metrik-kualitas-iso-25010-2023.md) & [dashboard.html](file:///Users/user/Documents/Unpam/Semester%207/TESTING%20%26%20QA/project/analisis-pengujian-sistem/reports/dashboard.html). |
+| **ISO/IEC/IEEE 29119** | **Tata Kelola & Dokumentasi Pengujian** (*Testing Process & Docs*) | *"Bagaimana urutan kerja, format rencana, dan dokumentasi pengujian QA yang baku?"* | Kerangka kerja Test Plan di [01-test-plan-iso-29119.md](file:///Users/user/Documents/Unpam/Semester%207/TESTING%20%26%20QA/project/analisis-pengujian-sistem/docs/01-test-plan-iso-29119.md), format skenario kasus uji, dan lembar kerja UAT [dokumen-uat-galeri-art.xlsx](file:///Users/user/Documents/Unpam/Semester%207/TESTING%20%26%20QA/project/analisis-pengujian-sistem/docs/dokumen-uat-galeri-art.xlsx). |

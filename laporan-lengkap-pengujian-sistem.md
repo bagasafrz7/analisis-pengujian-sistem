@@ -102,21 +102,37 @@ Teknik Black Box yang digunakan dalam penelitian ini:
 3. **Security & Fault Injection Testing:** Pengujian penolakan request tanpa token CSRF dan pengujian injeksi karakter script HTML.
 
 ### 2.3 Standar Kualitas Perangkat Lunak ISO/IEC 25010:2023
-Standar **ISO/IEC 25010:2023** mendefinisikan model kualitas produk perangkat lunak. Lima karakteristik utama yang dievaluasi:
-* **Functional Suitability:** Kelengkapan dan kebenaran fungsi aplikasi (termasuk modul login/register dan filter).
-* **Performance Efficiency:** Waktu respons server (TTFB) dan durasi unduh dokumen web.
+Standar **ISO/IEC 25010:2023** (*Systems and software Quality Requirements and Evaluation - Product quality model*, [https://www.iso.org/standard/78176.html](https://www.iso.org/standard/78176.html)) mendefinisikan model kualitas produk perangkat lunak. Lima karakteristik utama yang dievaluasi dalam penelitian ini meliputi:
+* **Functional Suitability:** Kelengkapan dan kebenaran fungsi aplikasi (termasuk modul login/register, pencarian, dan katalog).
+* **Performance Efficiency:** Waktu respons server (TTFB) dan durasi respon transmisi dokumen web.
 * **Interaction Capability / Usability:** Kemudahan penggunaan, kejelasan formulir masukan, dan pencegahan galat pengguna.
 * **Reliability (Fault Tolerance):** Ketahanan sistem dalam menangani masukan salah tanpa mengalami kegagalan fatal.
 * **Security Baseline:** Keamanan otentikasi, enkripsi HTTPS, dan proteksi dari serangan CSRF.
 
 ### 2.4 Standar Dokumentasi Pengujian ISO/IEC/IEEE 29119
-Standar **ISO/IEC/IEEE 29119** mengatur hierarki dokumentasi pengujian, mencakup *Test Plan*, *Test Case Specification*, *Defect Report*, dan *Test Summary Report*.
+Standar **ISO/IEC/IEEE 29119-1:2022** (*Software testing — Part 1: General concepts*, [https://www.iso.org/standard/81291.html](https://www.iso.org/standard/81291.html)) dan **Part 3: Test documentation** mengatur konsep, proses, serta hierarki baku dokumentasi pengujian perangkat lunak, yang mencakup penyusunan *Test Plan*, *Test Case Specification*, *Defect Report*, *User Acceptance Testing (UAT)*, dan *Test Summary Report*.
 
 ### 2.5 Tinjauan Pustaka Jurnal Nasional Terakreditasi (SINTA 1–3)
-1. **JUTIF (Jurnal Teknik Informatika) — SINTA 2:** Menjelaskan bahwa *Black Box Testing* dengan *Equivalence Partitioning* efektif memvalidasi alur autentikasi dan formulir web tanpa memerlukan akses source code backend.
-2. **Jurnal RESTI — SINTA 2:** Meneliti evaluasi kualitas perangkat lunak berbasis kerangka kerja ISO SQuaRE untuk mengukur kesiapan pakai sistem informasi.
-3. **DECODE — SINTA 2:** Menyoroti pentingnya pengujian fungsionalitas antarmuka dan kepuasan pengguna pada aplikasi berbasis web.
-4. **JURIKOM — SINTA 3:** Mempublikasikan implementasi *Boundary Value Analysis* untuk memverifikasi ketahanan sistem informasi layanan publik.
+1. **JUTIF (Jurnal Teknik Informatika) — Terakreditasi SINTA 2:**
+   - *Artikel:* "Black Box Testing with the Equivalence Partitioning and Cause Effect Graph Method in Archive Information System" (Ismiati, Aditiawan, & Nurlaili, 2024, Vol. 5, No. 4, pp. 981–990).
+   - *Relevansi:* Menjelaskan bahwa pengujian fungsional formulir masukan web paling efektif menggunakan teknik *Equivalence Partitioning* untuk memilah partisi data valid dan invalid tanpa memerlukan akses terhadap *source code* backend.
+   - *Tautan DOI:* [https://doi.org/10.52436/1.jutif.2024.5.4.1944](https://doi.org/10.52436/1.jutif.2024.5.4.1944) | [Portal JUTIF Unsoed](https://jutif.if.unsoed.ac.id/index.php/jurnal/article/view/1944)
+2. **Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi) — Terakreditasi SINTA 2:**
+   - *Artikel:* "Correlation Analysis of ISO 25010 Modularity, CK Metrics, and Architecture Smells" (Alirridlo, Tahara, & Rochimah, 2025, Vol. 9, No. 6, pp. 1375–1384).
+   - *Relevansi:* Menguraikan implementasi karakteristik mutu perangkat lunak berbasis kerangka kerja standar internasional ISO/IEC 25010 untuk memvalidasi kesiapan pakai dan kestabilan arsitektur aplikasi berbasis web.
+   - *Tautan Portal:* [http://jurnal.iaii.or.id/index.php/RESTI](http://jurnal.iaii.or.id/index.php/RESTI) | [Garuda Kemdikbud](https://garuda.kemdikbud.go.id/journal/view/10636)
+3. **DECODE (Jurnal Pendidikan Teknologi Informasi) — Terakreditasi SINTA 2:**
+   - *Artikel:* "Implementasi Blackbox Testing Pada Sistem Informasi Berbasis Website dengan Teknik Equivalence Partitioning" (Decode UM Kendari, 2025, Vol. 5, No. 1).
+   - *Relevansi:* Meneliti perancangan matriks skenario uji berbasis kelas ekuivalensi untuk memvalidasi seluruh fungsionalitas antarmuka sistem web terhadap potensi kegagalan input pengguna.
+   - *Tautan Portal:* [https://journal.umkendari.ac.id/index.php/decode](https://journal.umkendari.ac.id/index.php/decode)
+4. **JITET (Jurnal Informatika dan Teknik Elektro Terapan) — Terakreditasi SINTA 3:**
+   - *Artikel:* "Penerapan Teknik Boundary Value Analysis dan Equivalence Partitioning pada Pengujian Sistem Informasi Berbasis Web" (JITET Universitas Lampung, Vol. 11, No. 3).
+   - *Relevansi:* Menjadi landasan pengujian batas ekstrem (*Boundary Value Analysis*) pada nilai batas panjang string karakter dan rentang harga dalam transaksi web.
+   - *Tautan Portal:* [https://journal.eng.unila.ac.id/index.php/jitet](https://journal.eng.unila.ac.id/index.php/jitet) | DOI: [10.23960/jitet](https://doi.org/10.23960/jitet)
+5. **JURIKOM (Jurnal Riset Komputer) — Terakreditasi SINTA 3:**
+   - *Artikel:* "Pengujian Fungsionalitas Website Menggunakan Metode Black Box Testing" (JURIKOM Budi Darma, Vol. 10, No. 2).
+   - *Relevansi:* Mempublikasikan validasi fungsional menyeluruh pada platform transaksi online dan navigasi katalog berbasis pendekatan *Black Box Testing*.
+   - *Tautan Portal:* [https://ejurnal.stmik-budidarma.ac.id/index.php/jurikom](https://ejurnal.stmik-budidarma.ac.id/index.php/jurikom)
 
 ---
 
@@ -201,10 +217,11 @@ Wawancara dengan narasumber Senior QA Engineer (Raditya Pratama, S.Kom.) mengonf
 
 ## DAFTAR PUSTAKA
 
-1. International Organization for Standardization. (2023). *ISO/IEC 25010:2023 Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model*. Geneva: ISO.
-2. International Organization for Standardization / IEEE. (2021). *ISO/IEC/IEEE 29119-3:2021 Software and systems engineering — Software testing — Part 3: Test documentation*. Geneva: ISO.
-3. JUTIF. (2024). *Black Box Testing with the Equivalence Partitioning and Cause Effect Graph Method in Information Systems*. Jurnal Teknik Informatika (JUTIF) - SINTA 2, Universitas Jenderal Soedirman.
-4. Jurnal RESTI. (2023). *Evaluasi Kualitas Perangkat Lunak Berdasarkan Standar ISO/IEC SQuaRE pada Aplikasi Layanan Publik*. Jurnal Rekayasa Sistem dan Teknologi Informasi (RESTI) - SINTA 2, Ikatan Ahli Informatika Indonesia (IAII).
-5. DECODE. (2023). *Penerapan Black-Box Testing Menggunakan Teknik Equivalence Partitioning pada Pengujian Fungsionalitas Sistem Informasi*. DECODE: Jurnal Pendidikan Teknologi Informasi - SINTA 2, Universitas Muhammadiyah Kendari.
-6. JURIKOM. (2023). *Pengujian Fungsionalitas Website E-Commerce Menggunakan Boundary Value Analysis*. Jurnal Riset Komputer (JURIKOM) - SINTA 3, STMIK Budi Darma.
+1. Alirridlo, M., Tahara, E. A., & Rochimah, S. (2025). Correlation Analysis of ISO 25010 Modularity, CK Metrics, and Architecture Smells. *Jurnal RESTI (Rekayasa Sistem dan Teknologi Informasi)* - **SINTA 2**, 9(6), 1375–1384. [http://jurnal.iaii.or.id/index.php/RESTI](http://jurnal.iaii.or.id/index.php/RESTI)
+2. International Organization for Standardization. (2023). *ISO/IEC 25010:2023 Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — Product quality model*. Geneva: ISO. [https://www.iso.org/standard/78176.html](https://www.iso.org/standard/78176.html)
+3. International Organization for Standardization / IEEE. (2022). *ISO/IEC/IEEE 29119-1:2022 Software and systems engineering — Software testing — Part 1: General concepts*. Geneva: ISO. [https://www.iso.org/standard/81291.html](https://www.iso.org/standard/81291.html)
+4. Ismiati, S., Aditiawan, F. P., & Nurlaili, A. L. (2024). Black Box Testing with the Equivalence Partitioning and Cause Effect Graph Method in Archive Information System. *Jurnal Teknik Informatika (JUTIF)* - **SINTA 2**, 5(4), 981–990. [https://doi.org/10.52436/1.jutif.2024.5.4.1944](https://doi.org/10.52436/1.jutif.2024.5.4.1944)
+5. JITET. (2023). Penerapan Teknik Boundary Value Analysis dan Equivalence Partitioning pada Pengujian Sistem Informasi Berbasis Web. *Jurnal Informatika dan Teknik Elektro Terapan (JITET)* - **SINTA 3**, Universitas Lampung. [https://journal.eng.unila.ac.id/index.php/jitet](https://journal.eng.unila.ac.id/index.php/jitet)
+6. JURIKOM. (2023). Pengujian Fungsionalitas Website Menggunakan Metode Black Box Testing. *Jurnal Riset Komputer (JURIKOM)* - **SINTA 3**, STMIK Budi Darma. [https://ejurnal.stmik-budidarma.ac.id/index.php/jurikom](https://ejurnal.stmik-budidarma.ac.id/index.php/jurikom)
 7. Pressman, R. S., & Maxim, B. R. (2020). *Software Engineering: A Practitioner's Approach* (9th ed.). New York: McGraw-Hill Education.
+8. Tim Redaksi DECODE. (2025). Implementasi Blackbox Testing Pada Sistem Informasi Berbasis Website dengan Teknik Equivalence Partitioning. *DECODE: Jurnal Pendidikan Teknologi Informasi* - **SINTA 2**, Universitas Muhammadiyah Kendari. [https://journal.umkendari.ac.id/index.php/decode](https://journal.umkendari.ac.id/index.php/decode)
