@@ -75,24 +75,6 @@ Proyek ini dirancang dalam 5 minggu kerja intensif dan 1 minggu persiapan sidang
 
 ---
 
-## 🔬 Hasil Pengujian Sistem (Manual & Otomatis)
-
-### 1. Pengujian Otomatis (Node.js Test Runner)
-Skrip dijalankan langsung terhadap server live `https://galeri.art/`:
-* **Total Test Cases:** 12 Kasus Uji Otomatis
-* **Passed (Lolos):** **12 (100% Pass Rate)**
-* **Rata-rata Waktu Respon:** **~245 ms** (Sangat Cepat, di bawah ambang batas ISO $< 3.5\text{ detik}$)
-* **Keamanan:** Pembangkitan CSRF token valid (64-hex string) dan pencegatan callback liar tanpa token berhasil 100%.
-
-### 2. Pengujian Manual & Temuan Defect Riil (`DEF-001`)
-* **Total Test Cases:** 15 Kasus Uji Manual
-* **Passed:** 14 Kasus Uji (**93.33%**)
-* **Failed:** 1 Kasus Uji (6.67% — Temuan Defect)
-* **Temuan Defect `DEF-001` (Severity: Medium/High):**  
-  Ketika pengguna mengakses alamat slug karya atau artis yang tidak terdaftar di database (misal: `/artworks/item-palsu-acakkk999`), server mengembalikan respon **`HTTP 500 Internal Server Error`** alih-alih menyajikan halaman ramah pengguna **`HTTP 404 Not Found`**. Disarankan pengembang menambahkan pemanggilan fungsi `notFound()` dari Next.js saat hasil query data bernilai null.
-
----
-
 ## 👥 Pelaksanaan UAT & Pengujian Manual Alur Penuh oleh Setiap Anggota (W3 & W4)
 
 Sesuai silabus perkuliahan dan instruksi penugasan di mana **setiap anggota wajib memahami alur utuh (*end-to-end flow*) dan melakukan testing manual secara lengkap**, seluruh 4 anggota kelompok (Bagas, Hafizh, Aditya, Syaifa) menguji **seluruh 21 skenario fitur** pada portal [Galeri.art](https://galeri.art/):
